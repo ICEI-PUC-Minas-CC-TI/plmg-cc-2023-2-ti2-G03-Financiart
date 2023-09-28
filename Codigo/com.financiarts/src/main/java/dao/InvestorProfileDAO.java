@@ -7,18 +7,18 @@ import java.sql.Statement;
 
 import org.javatuples.Pair;
 
-import model.User;
+import model.InvestorProfile;
 
-public class UserDAO extends DAO {
+public class InvestorProfileDAO extends DAO {
 
-	public UserDAO() { 
-		super("User");
+	public InvestorProfileDAO() { 
+		super("InvestorProfile");
 		conectar();
 	}
 
 	@SuppressWarnings("unchecked")
-	public User get(int id) {
-		User user = null;
+	public InvestorProfile get(int id) {
+		InvestorProfile investorProfile = null;
 		
 		try {
 			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
@@ -30,37 +30,39 @@ public class UserDAO extends DAO {
 				
 			ResultSet rs = st.executeQuery(sql);	
 	        if(rs.next()){           
-	        	user = new User(
+	        	investorProfile = new InvestorProfile(
 	    			rs.getInt("id"),
-	    			rs.getString("cpf"),
-	    			rs.getString("sex"),
-	    			rs.getDate("birth"),
-	    			rs.getString("email"),
-	    			rs.getString("password")
+	    			rs.getString("knowledge"),
+	    			rs.getDouble("salary"),
+	    			rs.getString("objective"),
+	    			rs.getString("risk"),
+	    			rs.getString("focus")
 	        	);
 	        }
 	        st.close();
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		}
-		return user;
+		return investorProfile;
 	}
 	
 	@SuppressWarnings("unchecked")
-	public boolean insert(User user) {
+	public boolean insert(InvestorProfile investorProfile) {
 		boolean status = false;
 		try {
 			String sql = getQueryBuilder()
 				.Insert(
-						Pair.with("cpf", "'"+user.getCpf()+"'"),
-						Pair.with("sex", "'"+user.getSex() + "'"),
-						Pair.with("birth", "'"+user.getBirth() + "'"),
-						Pair.with("email", "'"+user.getEmail() + "'"),
-						Pair.with("password", "'"+user.getPassword() + "'")
+						Pair.with("knowledge", "'"+investorProfile.getKnowledge()+"'"),
+						Pair.with("salary", "'"+investorProfile.getSalary() + "'"),
+						Pair.with("objective", "'"+investorProfile.getObjective() + "'"),
+						Pair.with("risk", "'"+investorProfile.getRisk() + "'"),
+						Pair.with("focus", "'"+investorProfile.getFocus() + "'")
 				)
 				.Build();
 	
 			PreparedStatement st = conexao.prepareStatement(sql);
+		 //   st.setTimestamp(1, Timestamp.valueOf(user.getDataFabricacao()));
+		//	st.setDate(2, Date.valueOf(user.getDataValidade()));
 			st.executeUpdate();
 			st.close();
 			status = true;

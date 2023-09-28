@@ -11,53 +11,23 @@ public class User {
 	String password;
 	
 	
-	public int getId() {
-		return id;
-	}
+	public int getId() { return id; }
+	public void setId(int id) { this.id = id; }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	public String getCpf() { return cpf; }
+	public void setCpf(String cpf) { this.cpf = cpf;}
 
-	public String getCpf() {
-		return cpf;
-	}
+	public String getSex() { return sex; }
+	public void setSex(String sex) { this.sex = sex; }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+	public Date getBirth() { return birth; }
+	public void setBirth(Date birth) { this.birth = birth; }
 
-	public String getSex() {
-		return sex;
-	}
+	public String getEmail() { return email; }
+	public void setEmail(String email) { this.email = email; }
 
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-
-	public Date getBirth() {
-		return birth;
-	}
-
-	public void setBirth(Date birth) {
-		this.birth = birth;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	public String getPassword() { return password; }
+	public void setPassword(String password) { this.password = password; }
 
 	public User(int id, String cpf, String sex, Date birth, String email, String password) {
 		this.id = id;

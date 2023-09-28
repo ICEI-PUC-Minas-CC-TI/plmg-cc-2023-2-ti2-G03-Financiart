@@ -18,7 +18,7 @@ public class QueryBuilder implements IQuerySelector {
 		for(var i = 0; i < fields.length; i++) {
 			stringBuilder.append(fields[i]);
 			
-			if(i > 0 && i < fields.length)
+			if(fields.length > 1 && i < fields.length-1)
 				stringBuilder.append(",");
 		}
 		stringBuilder.append("FROM ");
@@ -34,7 +34,7 @@ public class QueryBuilder implements IQuerySelector {
 			var value = fields[i].getValue(1);
 			stringBuilder.append(key+"="+value);
 			
-			if(i > 0 && i < fields.length)
+			if(fields.length > 1 && i < fields.length-1)
 				stringBuilder.append(",");
 		}
 		return this;
