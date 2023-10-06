@@ -109,7 +109,4 @@ public class BaseDAO<T extends Entity<T>> extends DAO {
 		}
 		return produtos;
 	}
-	
-	
-
 }

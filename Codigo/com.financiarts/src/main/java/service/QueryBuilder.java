@@ -1,9 +1,8 @@
 package service;
 
-import service.abstractions.IQuerySelector;
 import org.javatuples.*;
 
-public class QueryBuilder implements IQuerySelector {
+public class QueryBuilder{
 
 	StringBuilder stringBuilder; 
 	String table;
