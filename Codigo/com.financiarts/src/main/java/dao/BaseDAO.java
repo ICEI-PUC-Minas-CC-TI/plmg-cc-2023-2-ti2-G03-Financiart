@@ -8,8 +8,7 @@ import java.util.function.Function;
 import org.javatuples.Pair;
 
 import model.Entity;
-import model.Produto;
- 
+
 public class BaseDAO<T extends Entity<T>> extends DAO {
 
 	Function<T, T> entityFactory;
