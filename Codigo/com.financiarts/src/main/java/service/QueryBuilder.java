@@ -45,6 +45,21 @@ public class QueryBuilder implements IQuerySelector {
 		return this;
 	}
 	
+	public QueryBuilder Update(Pair<String, String>... fields) {
+		stringBuilder.append("UPDATE ");
+		stringBuilder.append(getTable() + " SET ");
+		for(var i = 0; i < fields.length; i++) {
+			var key = fields[i].getValue(0);
+			var value = fields[i].getValue(1);
+			stringBuilder.append(key);
+			stringBuilder.append("=");
+			stringBuilder.append(value);
+			
+			if(fields.length > 1 && i < fields.length -1)
+				stringBuilder.append(",");
+		}
+		return this;
+	}
 	
 	public QueryBuilder Insert(Pair<String, String>... fields) {
 		stringBuilder.append("INSERT INTO ");
@@ -68,6 +83,21 @@ public class QueryBuilder implements IQuerySelector {
 		stringBuilder.append(");");
 		return this;
 	}
+	
+	public QueryBuilder OrderBy(String... props) {
+		 if(props.length == 0) return this;
+
+		 stringBuilder.append("ORDER BY ");
+		 for(var i = 0; i < props.length; i++) {
+			var value = props[i];
+			stringBuilder.append(value);
+			
+			if(props.length > 1 && i < props.length-1)
+				stringBuilder.append(",");
+		 }
+		 return this;
+	}
+	
 	
 	public String Build() {
 		return stringBuilder.toString();

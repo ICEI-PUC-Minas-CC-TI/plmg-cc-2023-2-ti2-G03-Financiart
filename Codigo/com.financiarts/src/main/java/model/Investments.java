@@ -7,16 +7,12 @@ import java.util.ArrayList;
 import org.javatuples.Pair;
 
 public class Investments extends Entity<Investments> {
-	
-	int id;
+
 	String asset;
 	String description;
 	String sector;
 	String risk;
 	String category;
-
-	public int getId() { return id; }
-	public void setId(int id) { this.id = id; }
 
 	public String getAsset() { return asset; }
 	public void setAsset(String asset) { this.asset = asset; }

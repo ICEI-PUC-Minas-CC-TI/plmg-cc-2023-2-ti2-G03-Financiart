@@ -1,18 +1,18 @@
 package model;
 
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
-public class InvestorProfile {
+import org.javatuples.Pair;
+
+public class InvestorProfile extends Entity<InvestorProfile>{
 	
-	int id;
 	String knowledge;
 	double salary;
 	String objective;
 	String risk;
 	String focus;
-
-	public int getId() { return id; }
-	public void setId(int id) { this.id = id; }
 	
 	public String getKnowledge() { return knowledge; }
 	public void setKnowledge(String knowledge) { this.knowledge = knowledge; }
@@ -52,6 +52,29 @@ public class InvestorProfile {
 				+ objective + ", risk=" + risk + ", focus=" + focus + "]";
 	}
 	
-	
+	@Override
+	@SuppressWarnings("unchecked")
+	public Pair<String, String>[] InsertFields(){
+		ArrayList<Pair<String,String>> list = new ArrayList<>();
+		list.add(Pair.with("id", "'"+ getId()+"'"));
+		list.add(Pair.with("knowledge", "'"+ getKnowledge() + "'"));
+		list.add(Pair.with("salary", getSalary()+""));
+		list.add(Pair.with("objective", "'"+ getObjective() + "'"));
+		list.add(Pair.with("risk", "'"+ getRisk() + "'"));
+		list.add(Pair.with("focus", "'"+ getFocus() + "'"));
+		return list.toArray(new Pair[0]);
+	}
+
+	@Override
+	public InvestorProfile FromResultSet(ResultSet rs) throws Exception {
+		return new InvestorProfile(
+			rs.getInt("id"),
+			rs.getString("knowledge"),
+			rs.getDouble("salary"),
+			rs.getString("objective"),
+			rs.getString("risk"),
+			rs.getString("focus")
+		);
+	}
 	
 }

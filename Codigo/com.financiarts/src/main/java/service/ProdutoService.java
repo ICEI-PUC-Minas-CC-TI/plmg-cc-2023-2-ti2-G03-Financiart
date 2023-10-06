@@ -5,15 +5,13 @@ import java.time.LocalDate;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.util.List;
-import dao.ProdutoDAO;
-import model.Produto;
 import spark.Request;
 import spark.Response;
 
 
 public class ProdutoService {
 
-	private ProdutoDAO produtoDAO = new ProdutoDAO();
+	/*private ProdutoDAO produtoDAO = new ProdutoDAO();
 	private String form;
 	private final int FORM_INSERT = 1;
 	private final int FORM_DETAIL = 2;
@@ -260,5 +258,5 @@ public class ProdutoService {
         }
 		makeForm();
 		return form.replaceFirst("<input type=\"hidden\" id=\"msg\" name=\"msg\" value=\"\">", "<input type=\"hidden\" id=\"msg\" name=\"msg\" value=\""+ resp +"\">");
-	}
+	}*/
 }

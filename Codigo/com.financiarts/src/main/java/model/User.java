@@ -1,18 +1,18 @@
 package model;
 
 import java.sql.Date;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
-public class User {
-	int id;
+import org.javatuples.Pair;
+
+public class User extends Entity<User> {
+
 	String cpf;
 	String sex;
 	Date birth;
 	String email;
 	String password;
-	
-	
-	public int getId() { return id; }
-	public void setId(int id) { this.id = id; }
 
 	public String getCpf() { return cpf; }
 	public void setCpf(String cpf) { this.cpf = cpf;}
@@ -51,5 +51,32 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", cpf=" + cpf + ", sex=" + sex + ", birth=" + birth + ", email=" + email
 				+ ", password=" + password + "]";
-	}	
+	}
+	
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public Pair<String, String>[] InsertFields(){
+		ArrayList<Pair<String,String>> list = new ArrayList<>();
+		list.add(Pair.with("id", "'"+ getId()+"'"));
+		list.add(Pair.with("cpf", "'"+ getCpf() + "'"));
+		list.add(Pair.with("sex", "'"+ getSex() + "'"));
+		list.add(Pair.with("birth", "'"+ getBirth() + "'"));
+		list.add(Pair.with("email", "'"+ getEmail() + "'"));
+		list.add(Pair.with("password", "'"+ getPassword() + "'"));
+		return list.toArray(new Pair[0]);
+	}
+
+	@Override
+	public User FromResultSet(ResultSet rs) throws Exception {
+		return new User(
+			rs.getInt("id"),
+			rs.getString("cpf"),
+			rs.getString("sex"),
+			rs.getDate("birth"),
+			rs.getString("email"),
+			rs.getString("password")
+		);
+	}
+	
 }
