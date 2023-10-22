@@ -1,5 +1,6 @@
 package model;
 
+import java.security.*;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -57,14 +58,21 @@ public class User extends Entity<User> {
 	@Override
 	@SuppressWarnings("unchecked")
 	public Pair<String, String>[] InsertFields(){
-		ArrayList<Pair<String,String>> list = new ArrayList<>();
-		list.add(Pair.with("id", "'"+ getId()+"'"));
-		list.add(Pair.with("cpf", "'"+ getCpf() + "'"));
-		list.add(Pair.with("sex", "'"+ getSex() + "'"));
-		list.add(Pair.with("birth", "'"+ getBirth() + "'"));
-		list.add(Pair.with("email", "'"+ getEmail() + "'"));
-		list.add(Pair.with("password", "'"+ getPassword() + "'"));
-		return list.toArray(new Pair[0]);
+		try {
+			var password = getPassword();
+			MessageDigest m = MessageDigest.getInstance("MD5");
+			m.update(password.getBytes(), 0, password.length());
+			
+			ArrayList<Pair<String,String>> list = new ArrayList<>();
+			list.add(Pair.with("cpf", "'"+ getCpf() + "'"));
+			list.add(Pair.with("sex", "'"+ getSex() + "'"));
+			list.add(Pair.with("birth", "'"+ getBirth() + "'"));
+			list.add(Pair.with("email", "'"+ getEmail() + "'"));
+			list.add(Pair.with("password", "'"+ password + "'"));
+			return list.toArray(new Pair[0]);
+		} catch (NoSuchAlgorithmException ex) {
+			return null;
+		}
 	}
 
 	@Override
@@ -77,6 +85,7 @@ public class User extends Entity<User> {
 			rs.getString("email"),
 			rs.getString("password")
 		);
+		
 	}
 	
 }

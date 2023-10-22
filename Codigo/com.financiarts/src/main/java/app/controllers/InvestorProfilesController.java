@@ -3,14 +3,23 @@ package app.controllers;
 import static spark.Spark.*;
 import dao.*;
 import model.InvestorProfile;
+import model.User;
 
-public class InvestorProfilesController {
+public class InvestorProfilesController extends CRUDBaseController<InvestorProfile>{
 
 	private static InvestorProfileDAO InvestorProfileDAO = new InvestorProfileDAO();
 	
-	public static void AddControlers() { 
-		get("/investorProfile/insert", (request, response) -> InvestorProfileDAO.insert(new InvestorProfile()));
-		
-        get("/investorProfile/:id", (request, response) -> InvestorProfileDAO.get(Integer.parseInt(request.params(":id"))));    
+	public InvestorProfilesController() {
+		super("investorProfile");
+	}
+
+	@Override
+	public String onGet(int id) {
+		return InvestorProfileDAO.get(id).toString();
+	}
+
+	@Override
+	public void onInsert() {
+		InvestorProfileDAO.insert(new InvestorProfile());
 	}
 }
