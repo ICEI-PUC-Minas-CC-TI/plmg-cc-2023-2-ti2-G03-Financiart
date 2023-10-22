@@ -1,0 +1,98 @@
+body {
+    background-color: #faf4fb;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px;
+    margin: 7% auto;
+    padding: 30px;
+    background-color: #ebebeb;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.tituloCalc {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 35px;
+    font-weight: 600;
+    color: rgba(81 4 125 / 90);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: inline-flex;
+    margin: 10px 0 10px 0;
+    font-weight: bold;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 15px
+}
+
+.resultados {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.resultados label {
+    display: inline-block;
+    width: 160px;
+}
+
+.resultados input {
+    display: inline-block;
+    width: calc(100% - 120px);
+    margin-left: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #68119d;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    align-self: flex-end;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #af95bb;
+}
+
+.btnvoltar {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 10px 30px;
+  border-radius: 4px;
+  background-color: #8916ac;
+  float: right;
+}
+
+.btnvoltar:hover {
+  background: #3d0d3e;
+  color: #ffffff;
+}
+
+.voltar{
+   margin: 0 5% 0 0;
+}

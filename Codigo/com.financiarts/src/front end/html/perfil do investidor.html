@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Perfil do Investidor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Login</title>
+    <link href="../css/perfil do investidor.css" rel="stylesheet" type="text/css" />
+  
+</head>
+   
+<body>
+  <h1>Perfil do Investidor</h1>
+  <form class="perfil">
+    <h2>Informações Pessoais</h2>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade" required>
+
+    <h2>Tipo de Investidor</h2>
+    <p>Selecione a opção que melhor descreve seu perfil como investidor:</p>
+    <input type="radio" id="conservador" name="perfil_investidor" value="conservador" required>
+    <label for="conservador">Prioriza a segurança, busca preservar o capital, opta por investimentos de baixo risco e aceita retornos mais moderados em troca de menor volatilidade.</label><br>
+
+    <input type="radio" id="moderado" name="perfil_investidor" value="moderado">
+    <label for="moderado">Busca um equilíbrio entre segurança e crescimento, assume riscos moderados, diversifica a carteira e valoriza a estabilidade a médio e longo prazo.</label><br>
+
+    <input type="radio" id="arrojado" name="perfil_investidor" value="arrojado">
+    <label for="arrojado">
+         Busca altos rendimentos, está disposto a assumir riscos elevados, busca investimentos de maior potencial de retorno, é mais tolerante à volatilidade do mercado.</label><br>
+
+    <h2>Objetivos de Investimento</h2>
+    <label for="curto_prazo">Investimentos de curto prazo:</label>
+    <input type="text" id="curto_prazo" name="curto_prazo" required>
+
+    <label for="medio_prazo">Investimentos de médio prazo:</label>
+    <input type="text" id="medio_prazo" name="medio_prazo" required>
+
+    <label for="longo_prazo">Investimentos de longo prazo:</label>
+    <input type="text" id="longo_prazo" name="longo_prazo" required>
+
+    <h2>Experiência em Investimentos</h2>
+    <div class="informar">
+    <p>Informe sua experiência em investimentos:</p>
+    </div>
+    <div class="exp">
+    <input type="radio" id="nenhuma_experiencia" name="experiencia_investimentos" value="nenhuma_experiencia" required>
+
+    <label for="nenhuma_experiencia">Nenhuma experiência</label><br>
+
+    <input type="radio" id="pouca_experiencia" name="experiencia_investimentos" value="pouca_experiencia">
+    <label for="pouca_experiencia">Pouca experiência</label><br>
+
+    <input type="radio" id="alguma_experiencia" name="experiencia_investimentos" value="alguma_experiencia">
+    <label for="alguma_experiencia">Alguma experiência</label><br>
+
+    <input type="radio" id="muita_experiencia" name="experiencia_investimentos" value="muita_experiencia">
+    <label for="muita_experiencia">Muita experiência</label><br>
+        
+</div>
+
+    <h2>Tolerância a Riscos</h2>
+    <p>Indique o seu nível de tolerância a riscos:</p>
+    <div class="tolerancia">
+    <input type="radio" id="baixa_tolerancia" name="tolerancia_riscos" value="baixa_tolerancia" required>
+    <label for="baixa_tolerancia">Baixa tolerância a riscos</label><br>
+
+    <input type="radio" id="media_tolerancia" name="tolerancia_riscos" value="media_tolerancia">
+    <label for="media_tolerancia">Média tolerância a riscos</label><br>
+
+    <input type="radio" id="alta_tolerancia" name="tolerancia_riscos" value="alta_tolerancia">
+    <label for="alta_tolerancia">Alta tolerância a riscos</label><br>
+    </div>
+    <h2>Renda Mensal</h2>
+    <label for="renda_mensal">Informe sua renda mensal:</label>
+    <input type="number" id="renda_mensal" name="renda_mensal" required>
+
+    <h2>Conhecimento Financeiro</h2>
+    <p>Marque as opções que você possui conhecimento:</p>
+
+    <div class="conhecimento">
+    <input type="checkbox" id="acoes" name="conhecimento_financeiro[]" value="acoes">
+    <label for="acoes">Ações</label><br>
+
+    <input type="checkbox" id="fundos_investimento" name="conhecimento_financeiro[]" value="fundos_investimento">
+    <label for="fundos_investimento">Fundos de Investimento</label><br>
+
+    <input type="checkbox" id="titulos_publicos" name="conhecimento_financeiro[]" value="titulos_publicos">
+    <label for="titulos_publicos">Títulos Públicos</label><br>
+
+    <input type="checkbox" id="imoveis" name="conhecimento_financeiro[]" value="imoveis">
+    <label for="imoveis">Investimentos Imobiliários</label><br>
+
+    <input type="checkbox" id="outros" name="conhecimento_financeiro[]" value="outros">
+    <label for="outros">Outros</label><br>
+</div>
+    <h2>Comentários Adicionais</h2>
+    <label for="comentarios">Comentários adicionais:</label>
+    <div></div>
+    <textarea id="comentarios" name="comentarios"></textarea>
+
+    <br><br>
+    <input type="submit" value="Enviar">
+  </form>
+
+  
+<script>
+  document.querySelector('.perfil').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const perfilInvestidor = document.querySelector('input[name="perfil_investidor"]:checked').value;
+    const rendaMensal = parseInt(document.getElementById('renda_mensal').value);
+    const conhecimentoFinanceiro = document.querySelectorAll('input[name="conhecimento_financeiro[]"]:checked');
+    const comentarios = document.getElementById('comentarios').value;
+
+
+    let tipoInvestidor = '';
+    if (perfilInvestidor === 'conservador' && rendaMensal < 2500) {
+      tipoInvestidor = 'Um investidor conservador com renda mais baixa busca preservar o capital e prioriza investimentos de baixo risco e maior segurança, como renda fixa, fundos imobiliários, entre outros, além de estabelecer uma reserva de emergência especialmente importante devido à sua menor capacidade de absorver imprevistos financeiros. ';
+    } else if (perfilInvestidor === 'conservador' && rendaMensal >= 2500) {
+      tipoInvestidor = 'Investidor conservador - você busca preservar o capital e prioriza investimentos de baixo risco e maior segurança, como renda fixa, fundos imobiliários, entre outros, e também estabelece uma reserva de emergência para lidar com imprevistos financeiros.';
+    } else if (perfilInvestidor === 'moderado') {
+      tipoInvestidor = 'Investidor Moderado - você busca diversificar seu portfólio em diferentes classes de ativos, como ações, títulos e fundos mútuos, para reduzir os riscos  ';
+    } else if (perfilInvestidor === 'arrojado' && conhecimentoFinanceiro.length >= 3) {
+      tipoInvestidor = 'Investidor Ousado - você tende a buscar oportunidades de investimento com maior potencial de crescimento, mesmo que isso envolva maiores riscos e menos previsibilidade nos resultados';
+    } else {
+      tipoInvestidor = 'Investidor Não Identificado';
+    }
+
+    alert('Seu tipo de investidor é: ' + tipoInvestidor);
+
+   
+    document.getElementById('nome').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('idade').value = '';
+    document.getElementById('curto_prazo').value = '';
+    document.getElementById('medio_prazo').value = '';
+    document.getElementById('longo_prazo').value = '';
+    document.getElementById('renda_mensal').value = '';
+    document.getElementById('comentarios').value = '';
+
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(function(radio) {
+      radio.checked = false;
+    });
+
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(function(checkbox) {
+      checkbox.checked = false;
+    });
+  });
+</script>
+</body>
+</html>

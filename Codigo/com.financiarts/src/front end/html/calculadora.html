@@ -1,0 +1,111 @@
+<html lang="pt-br" dir="ltr">
+
+<head>
+  <title>Calculadora</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/calculadora.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/responsivo.css">
+  <link rel="shortcut icon" href="../img/logocima.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+  <main>
+
+    <div class="home">
+      <a href="../html/home.html" class="logohome"><i class="logo"></i></a>
+      <div class="">
+        <a href="#" id="menu-mobile">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+      <nav class="cabecalho">
+        <ul id="cabecalho1">
+          <li class="inicio"><a class="topicos" href="../html/gerenciamento.html">Acompanhar</a></li>
+          <li class="inicio"><a class="topicos" href="../html/investimentos.html">Investimentos</a></li>
+          <li class="inicio"><a class="topicos" href="../html/calculadora.html">Calcular</a></li>
+          <li class="inicio"><a class="topicos" href="../html/contato.html">Notícias</a></li>
+          <li class="inicio"><a class="btnentrar" href="../html/login.html">Entrar</a></li>
+          <li class="inicio"><a class="btncadastrar" href="../html/login.html">Cadastre-se</a></li>
+        </ul>
+      </nav>
+
+      <div class="clear"></div>
+    </div>
+
+    <div class="container">
+      <h1 class="tituloCalc">Calcular investimentos</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="valor"><b>Valor inicial:</b></label>
+            <input type="number" id="valor" class="form-control" placeholder="Valor inicial" min="0">
+          </div>
+          <div class="form-group">
+            <label for="tempo"><b>Tempo:</b></label>
+            <input type="number" id="tempo" class="form-control" placeholder="Tempo" min="0">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="tempoRadio" id="tempoAnos" value="anos" checked>
+              <label class="form-check-label" for="tempoAnos">Anos</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input1" type="radio" name="tempoRadio" id="tempoMeses" value="meses">
+              <label class="form-check-label" for="tempoMeses">Meses</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="taxa"><b>Taxa:</b></label>
+            <input type="number" id="taxa" class="form-control" placeholder="Taxa" min="0">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input2" type="radio" name="taxaRadio" id="taxaAnos" value="anos" checked>
+              <label class="form-check-label" for="taxaAnos">Anual</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input3" type="radio" name="taxaRadio" id="taxaMeses" value="meses">
+              <label class="form-check-label" for="taxaMeses">Mensal</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="aportes"><b>Valor aportes:</b></label>
+            <input type="number" id="aportes" class="form-control" placeholder="Aportes" min="0">
+          </div>
+          <div class="resultados">
+            <div class="form-group resultado">
+              <label for="valorFinal">Valor final estimado:</label>
+              <span id="valorFinalSpan"></span>
+            </div>
+            <div class="form-group resultado">
+              <label for="jurosFinal">Juros rendido no final:</label>
+              <span id="jurosFinalSpan"></span>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <button id="enviar">Calcular</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+    <div class="voltar">
+      <a href="../html/home.html" class="btnvoltar">Voltar</a>
+    </div>  
+    </footer>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  </main>
+</body>
+
+<script defer src="../js/calculadora.js"></script>
+
+</html>
