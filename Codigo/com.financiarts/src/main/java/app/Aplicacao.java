@@ -13,11 +13,9 @@ public class Aplicacao {
         
         staticFiles.location("/public");
 
-        InvestorProfilesController.AddControlers();
-        
-        UsersController.AddControlers();
-        
-        InvestmentsController.AddControlers();
+        new InvestorProfilesController();
+        new UsersController().AddController();
+        new InvestmentsController();
             
     }
 }

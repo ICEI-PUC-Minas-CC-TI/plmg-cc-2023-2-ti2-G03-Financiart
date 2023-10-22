@@ -56,7 +56,6 @@ public class InvestorProfile extends Entity<InvestorProfile>{
 	@SuppressWarnings("unchecked")
 	public Pair<String, String>[] InsertFields(){
 		ArrayList<Pair<String,String>> list = new ArrayList<>();
-		list.add(Pair.with("id", "'"+ getId()+"'"));
 		list.add(Pair.with("knowledge", "'"+ getKnowledge() + "'"));
 		list.add(Pair.with("salary", getSalary()+""));
 		list.add(Pair.with("objective", "'"+ getObjective() + "'"));

@@ -90,7 +90,7 @@ public class BaseDAO<T extends Entity<T>> extends DAO {
 		return status;
 	}
 	
-	public List<T> AllBy(String orderBy) {
+	public List<T> orderBy(String orderBy) {
 		List<T> produtos = new ArrayList<T>();
 		
 		try {
