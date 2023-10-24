@@ -1,14 +1,14 @@
 body {
-    background-color: #faf4fb;
+    background-color: #f0e9f1;
     font-family: Arial, sans-serif;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 7% auto;
     padding: 30px;
-    background-color: #ebebeb;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(211, 101, 213, 0.304);
     border-radius: 5px;
 }
 
@@ -16,7 +16,7 @@ body {
     font-size: 22px;
     text-align: center;
     margin-bottom: 35px;
-    font-weight: 600;
+    font-weight: 700;
     color: rgba(81 4 125 / 90);
 }
 
@@ -35,16 +35,58 @@ label {
     font-weight: bold;
 }
 
-input[type="number"] {
-    padding: 8px;
-    border-radius: 5px;
+#valor{
+    position:relative;
+    left:28px;
+    padding: 10px;
+    border-radius: 7px;
     border: 1px solid #ccc;
-    font-size: 15px
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+
+
+}
+
+#tempo{
+    position:relative;
+    left:58px;
+    top:26px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+
+}
+
+#taxa{
+
+    position:relative;
+    left:73px;
+    top:20px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+
+}
+
+#aportes{
+    position:relative;
+    left:12px;
+    padding: 10px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
 .resultados {
-    border: 1px solid #ccc;
+    border: 2px solid #ece8e8;
     padding: 10px;
+    border-radius: 9px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
 }
 
 .resultados label {
@@ -61,20 +103,27 @@ input[type="number"] {
 }
 
 button {
-    padding: 10px;
-    border-radius: 5px;
+    
+    border-radius: 4px;
     border: none;
-    background-color: #68119d;
+   
+    background-color: #8916ac;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 19px;
+    font-weight: 600;
+    padding: 10px 30px;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
     align-self: flex-end;
-    margin-top: 15px;
+    margin-top: 32px;
+    margin-left:350px;
+    box-shadow: 0px 4px 6px rgba(24, 3, 25, 0.4); /* Adiciona uma sombra suave */
 }
 
+
+
 button:hover {
-    background-color: #af95bb;
+    background-color: #d197ec;
 }
 
 .btnvoltar {
@@ -89,7 +138,7 @@ button:hover {
 }
 
 .btnvoltar:hover {
-  background: #3d0d3e;
+    background-color: #d197ec;
   color: #ffffff;
 }
 
