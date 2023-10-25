@@ -14,7 +14,7 @@
 
 <body>
 
-  <main>
+  <body>
 
     <div class="home">
       <a href="../html/home.html" class="logohome"><i class="logo"></i></a>
@@ -25,85 +25,102 @@
           <span></span>
         </a>
       </div>
-      <nav class="cabecalho">
-        <ul id="cabecalho1">
-          <li class="inicio"><a class="topicos" href="../html/gerenciamento.html">Acompanhar</a></li>
-          <li class="inicio"><a class="topicos" href="../html/investimentos.html">Investimentos</a></li>
-          <li class="inicio"><a class="topicos" href="../html/calculadora.html">Calcular</a></li>
-          <li class="inicio"><a class="topicos" href="../html/contato.html">Notícias</a></li>
-          <li class="inicio"><a class="btnentrar" href="../html/login.html">Entrar</a></li>
-          <li class="inicio"><a class="btncadastrar" href="../html/login.html">Cadastre-se</a></li>
-        </ul>
-      </nav>
-
-      <div class="clear"></div>
-    </div>
-
     <div class="container">
-      <h1 class="tituloCalc">Calcular investimentos</h1>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="valor"><b>Valor inicial:</b></label>
-            <input type="number" id="valor" class="form-control" placeholder="Valor inicial" min="0">
-          </div>
-          <div class="form-group">
-            <label for="tempo"><b>Tempo:</b></label>
-            <input type="number" id="tempo" class="form-control" placeholder="Tempo" min="0">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="tempoRadio" id="tempoAnos" value="anos" checked>
-              <label class="form-check-label" for="tempoAnos">Anos</label>
+        <section class="content">
+            <h3 class="text-center">Calculadora de Juros Compostos</h3>
+            
+            <form onsubmit="return false">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">Valor Inicial:</label>
+                        <input class="montante form-control" type="number" placeholder="Valor inicial">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Aporte Mensal:</label>
+                        <input class="aporte form-control" type="number" placeholder="Senão, vazio">
+                    </div>
+                </div>
+              
+                <div class="row">
+                   
+                    <div class="col-md-6">
+                        <label class="control-label">Taxa Mensal (padrão)</label>
+                        <input class="taxa form-control" type="number" placeholder="Taxa de juros">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Ou taxa anual</label>
+                        <input class="taxaAno form-control" type="number" placeholder="Senão, vazio">
+                    </div>
+                </div>
+               
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                        <label class="control-label">Prazo Em meses (padrão)</label>
+                        <input class="prazo form-control" type="number" placeholder="Meses">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="control-label">Prazo em anos</label>
+                        <input class="prazoAno dataput form-control" type="number" placeholder="Senão, vazio">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="control-label">Prazo até data específica</label>
+                        <input class="ateVencer dataput form-control" type="date" placeholder="Data do Vencimento">
+                    </div>
+                </div>
+             
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg simulaUm" value="Calcular">
+                    </div>
+                </div>
+            </form>
+            <hr>
+            <div class="row resultados">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th>Aplicação inicial</th>
+                                <th>Soma Aplicações</th>
+                                <th>Juros totais</th>
+                                <th>Acumulado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>R$ <span class="apIn">.</span></td>
+                                <td>R$ <span class="apOut">.</span></td>
+                                <td>R$ <span class="apJu">.</span></td>
+                                <td>R$ <span class="apTot">.</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <section>
+                    <label class="control-label">Dados parciais e acumulados:</label>
+                    <p></p>
+                    <div id="printfinal" class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped table-dark">
+                            <thead>
+                                <tr>
+                                    <th>Mês</th>
+                                    <th>Aportes</th>
+                                    <th>Juros no mês</th>
+                                    <th>Juros total</th>
+                                    <th>Acumulado</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </section>
             </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input1" type="radio" name="tempoRadio" id="tempoMeses" value="meses">
-              <label class="form-check-label" for="tempoMeses">Meses</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="taxa"><b>Taxa:</b></label>
-            <input type="number" id="taxa" class="form-control" placeholder="Taxa" min="0">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input2" type="radio" name="taxaRadio" id="taxaAnos" value="anos" checked>
-              <label class="form-check-label" for="taxaAnos">Anual</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input3" type="radio" name="taxaRadio" id="taxaMeses" value="meses">
-              <label class="form-check-label" for="taxaMeses">Mensal</label>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="aportes"><b>Valor aportes:</b></label>
-            <input type="number" id="aportes" class="form-control" placeholder="Aportes" min="0">
-          </div>
-          <div class="resultados">
-            <div class="form-group resultado">
-              <label for="valorFinal">Valor final estimado:</label>
-              <span id="valorFinalSpan"></span>
-            </div>
-            <div class="form-group resultado">
-              <label for="jurosFinal">Juros rendido no final:</label>
-              <span id="jurosFinalSpan"></span>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-md-6">
-          <button id="enviar">Calcular</button>
-        </div>
-      </div>
+        </section>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/script.js"></script>
 
-    <footer>
-    <div class="voltar">
-      <a href="../html/home.html" class="btnvoltar">Voltar</a>
-    </div>  
-    </footer>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-  </main>
 </body>
 
 <script defer src="../js/calculadora.js"></script>
