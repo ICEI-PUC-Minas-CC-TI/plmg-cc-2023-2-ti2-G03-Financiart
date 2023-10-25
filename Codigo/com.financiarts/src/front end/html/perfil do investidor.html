@@ -14,20 +14,20 @@
   <form class="perfil">
     <h2>Informações Pessoais</h2>
     <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required>
+    <input type="text" id="nome" name="nome" required value="okjlhkk">
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
+    <input type="email" id="email" name="email" required value="okjlhkk">
 
     <label for="idade">Idade:</label>
-    <input type="number" id="idade" name="idade" required>
+    <input type="number" id="idade" name="idade" required value="10">
 
     <h2>Tipo de Investidor</h2>
     <p>Selecione a opção que melhor descreve seu perfil como investidor:</p>
     <input type="radio" id="conservador" name="perfil_investidor" value="conservador" required>
     <label for="conservador">Prioriza a segurança, busca preservar o capital, opta por investimentos de baixo risco e aceita retornos mais moderados em troca de menor volatilidade.</label><br>
 
-    <input type="radio" id="moderado" name="perfil_investidor" value="moderado">
+    <input type="radio" id="moderado" name="perfil_investidor" value="moderado" checked>
     <label for="moderado">Busca um equilíbrio entre segurança e crescimento, assume riscos moderados, diversifica a carteira e valoriza a estabilidade a médio e longo prazo.</label><br>
 
     <input type="radio" id="arrojado" name="perfil_investidor" value="arrojado">
@@ -112,6 +112,13 @@
 <script>
   document.querySelector('.perfil').addEventListener('submit', function(event) {
     event.preventDefault(); 
+    fetch(`http://localhost:6789/user/1`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(function (response) { return response.json() })
+    .then(data => { console.log(data) } )
 
     const perfilInvestidor = document.querySelector('input[name="perfil_investidor"]:checked').value;
     const rendaMensal = parseInt(document.getElementById('renda_mensal').value);
