@@ -1,0 +1,206 @@
+
+.perfil{
+    width:80%;
+    margin-left:10%;
+    margin-right:10%;
+    border:1px solid rgb(193, 37, 255);
+    padding:18px;
+}
+
+
+  
+  h1 {
+    text-align: center;
+    color: #4B0082; /* Roxo */
+    font-size: 50px;
+    font-style: italic;
+    font-weight:bold;
+  }
+
+h2 {
+    text-align: center;
+    color: #b27cd9; /* Roxo */
+    font-size: 35px;
+    font-style: italic;
+    font-weight:bold;
+}
+
+form input[type="text"]{
+    padding:10px 13px;
+    width: 90%;
+    border-radius: 4px;
+    border:1px solid #7d4274c0;
+    margin-top:30px;
+    margin-bottom:20px;
+    display:inline-block;
+    font-family:tahoma;
+  }
+
+  form input[type="email"]{
+    padding:10px 13px;
+    width: 90%;
+    border-radius: 4px;
+    border:1px solid #7d4274c0;
+    margin-top:30px;
+    margin-bottom:20px;
+    display:inline-block;
+    font-family:tahoma;
+  }
+  
+
+
+  form input[type="number"]{
+    padding:10px 13px;
+    width: 90%;
+    border-radius: 4px;
+    border:1px solid #7d4274c0;
+    margin-top:30px;
+    margin-bottom:20px;
+    display:inline-block;
+    font-family:tahoma;
+    font-size:15px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    font-size:50px;
+  }
+  
+label[for="nome"],
+label[for="email"],
+label[for="idade"] {
+    font-size:25px;
+    display: block;
+    font-weight: bold;
+    font-style:italic;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: #5f28966e;
+  }
+  
+  
+    p {
+        font-weight: bold;
+        color: #371061e6; /* Amethyst - código hexadecimal */
+        margin-top:50px;
+        margin-bottom: 30px;
+        font-size:20px;
+        margin-left: 30%;
+      }
+      
+      input[type="radio"]#conservador,
+      input[type="radio"]#moderado,
+      input[type="radio"]#arrojado
+      {
+        margin-left:0%;
+        font-size:50px;
+        margin-bottom:20px;
+        
+      }
+
+
+      input[type="radio"]#nenhuma_experiencia,
+      input[type="radio"]#pouca_experiencia,
+      input[type="radio"]#alguma_experiencia,
+      input[type="radio"]#muita_experiencia{
+        margin-left:-1%;
+        font-size:50px;
+        margin-bottom:20px;
+        
+      }
+
+
+
+      input[type="radio"]#baixa_tolerancia,
+      input[type="radio"]#media_tolerancia,
+      input[type="radio"]#alta_tolerancia
+     {
+        margin-left:-1%;
+        font-size:50px;
+        margin-bottom:20px;
+        
+      }
+
+
+
+      .exp{
+        margin-left:40%;
+      }
+  
+      .tolerancia{
+        margin-left:40%;
+        font-size:17px;
+         font-weight: 550;
+
+      }
+      label[for="conservador"],
+      label[for="moderado"],
+      label[for="arrojado"],
+      label[for="nenhuma_experiencia"],
+      label[for="pouca_experiencia"],
+      label[for="alguma_experiencia"],
+      label[for="muita_experiencia"]
+      {
+    
+    font-size:17px;
+    font-weight: 550;
+    
+    
+  }
+
+  label[for="curto_prazo"],
+  label[for="medio_prazo"],
+  label[for="renda_mensal"],
+  label[for="longo_prazo"],
+  label[for="comentarios"]{
+    font-size:22px;
+    color:rgb(78, 32, 111);
+    font-weight: 500;
+  }
+  
+  
+  .conhecimento{
+    margin-left:40%;
+    font-size:20px;
+    margin-bottom:50px;
+    font-weight: 550;
+    margin-top:20px;
+  }
+
+  
+    
+  input[type="submit"] {
+    display: block;
+    width: 20%;
+    padding: 10px;
+    margin-left:550px;
+    background-color: #372172;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #2e0748;
+  }
+  
+  textarea {
+    height: 100px;
+    width:96%;
+    resize:none;
+  }
+  
+  /* Optional: Add styles for validation error messages */
+  input:invalid,
+  textarea:invalid {
+    border-color: red;
+  }
+  
+  input:valid,
+  textarea:valid {
+    border-color: #ccc;
+  }
+  
+  

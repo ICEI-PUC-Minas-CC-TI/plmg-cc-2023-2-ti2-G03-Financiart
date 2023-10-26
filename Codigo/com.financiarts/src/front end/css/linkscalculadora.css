@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 80%;
+    font-family: "Kanit", sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
+html[data-theme="light"] {
+    --bg: #ffff;
+    --color-text: #000;
+    --box-shadow: 0 0 0.4rem #000;
+    --bg-link: #000;
+    --color-link: #ffff;
+    /* Botão change theme */
+    --bg-bottom: #000;
+    --icon: #fff;
+    --slider: #fff;
+}
+
+html[data-theme="dark"] {
+    --bg: #000;
+    --color-text: #ffff;
+    --box-shadow: 0 0 0.4rem #ffff;
+    --bg-link: #fff;
+    --color-link: #000;
+    /* Botão change theme */
+    --bg-bottom: #fff;
+    --icon: #000;
+    --slider: #000;
+}
+
+body {
+    background-color: var(--bg);
+}
+
+#container-principal .container-width {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    height: calc(100vh - 35px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container-principal .container-width .container-input-checkbox {
+    display: flex;
+
+    position: absolute;
+    left: 340px;
+    top: 10px;
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema {
+    width: 60px;
+    height: 34px;
+
+    display: inline-block;
+    position: relative;
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema input {
+    display: none;
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema .slider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+
+    border-radius: 20px;
+
+    cursor: pointer;
+    transition: 0.4s;
+    background-color: var(--bg-bottom);
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema .slider:before {
+    content: "";
+
+    width: 26px;
+    height: 26px;
+
+    border-radius: 50%;
+
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    
+    background-color: var(--slider);
+    transition: 0.4s;
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema input:checked + .slider:before {
+    transform: translateX(25px);
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema .slider svg {
+    position: absolute;
+
+    color: var(--icon);
+    transition: opacity 0.2s ease 0s, transform 0.35s ease 0s;
+    pointer-events: none;
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema .slider .efeito-sol {
+    right: 10px;
+    bottom: 9px;
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema .slider .efeito-lua {
+    left: 9px;
+    bottom: 9px;
+    opacity: 0;
+    transform: translateX(4px);
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema input:checked + .slider .efeito-lua {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#container-principal .container-width .container-input-checkbox .mudar-tema input:checked + .slider .efeito-sol {
+    transform: translateX(-4px);
+    opacity: 0;
+}
+
+
+#container-principal .container-width .container-infos {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#container-principal .container-width .container-infos img {
+    width: 100%;
+    border-radius: 10%;
+}
+
+#container-principal .container-width .container-infos h1 {
+    font-size: 1.5rem;
+    padding-top: 10px;
+
+    font-weight: normal;
+    color: var(--color-text);
+}
+
+.textocal{
+    font-size: 20px;
+}
+
+.links {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+    padding-top: 20px;
+}
+
+.links a {
+    width: 30%;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 0.5rem;
+    box-shadow: var(--box-shadow);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: 0.3s;
+}
+
+.links a i {
+    font-size: 1.5rem;
+}
+
+.links a span {
+    font-size: 1.5rem;
+}
+
+.links a:hover {
+    background-color: var(--bg-link);
+    color: var(--color-link);
+}
+
+#rodape {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#rodape span {
+    font-size: 1.2rem;
+
+    color: var(--color-text);
+}
+
+/* Responsividade */
+@media screen and (min-width: 1440px) {
+    #container-principal .container-width .container-input-checkbox {
+        left: 380px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #container-principal .container-width .container-input-checkbox {
+        left: 170px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #container-principal .container-width .container-input-checkbox {
+        left: 110px;
+    }
+   
+    #container-principal .container-width .container-infos img {
+        width: 18%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #container-principal {
+        padding: 100px 0;
+    }
+    #container-principal .container-width .container-input-checkbox {
+        left: 70px;
+    }
+   
+    #container-principal .container-width .container-infos img {
+        width: 28%;
+    }
+   
+    .links a {
+        width: 70%;
+        font-size: 1.3rem;
+    }
+}
+
+
+@media screen and (max-width: 425px) {
+    #container-principal .container-width .container-input-checkbox {
+        left: 40px;
+    }
+    
+    #container-principal .container-width .container-infos img {
+        width: 35%;
+    }
+    #container-principal .container-width .container-infos h1 {
+        font-size: 1.4rem;
+    }
+
+    .links a {
+        width: 80%;
+    }
+
+    #rodape span {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #container-principal .container-width .container-input-checkbox {
+        left: 20px;
+    }
+    .mudar-tema {
+        height: 32px;
+    }
+    .slider {
+        border-radius: 32px;
+    }
+    .slider:before {
+        height: 24px;
+        width: 24px;
+    }
+    .efeito-lua {
+        bottom: 8px;
+    }
+    .efeito-sol {
+        bottom: 8px;
+    }
+   
+    #container-principal .container-width .container-infos img {
+        width: 40%;
+    }
+    .links a {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #container-principal .container-width .container-input-checkbox {
+        left: 10px;
+    }
+   
+    #container-principal .container-width .container-infos h1 {
+        font-size: 1.3rem;
+    }
+    .links a {
+        font-size: 1.2rem;
+    }
+    #rodape .span-1 {
+        font-size: 1.2rem;
+    }
+    #rodape .span-2 {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    #container-principal .container-width .container-infos h1 {
+        font-size: 1.2rem;
+    }
+    .links a {
+        height: 90px;
+        font-size: 1.1rem;
+    }
+    #rodape .span-1 {
+        font-size: 0.9rem;
+    }
+    #rodape .span-2 {
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/calcularprecojusto.css">
+    <title>Calculadora de Preço Justo</title>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculadora de Preço Justo</h1>
+        <label for="earnings">Digite o VPA:</label>
+        <input type="number" id="earnings" placeholder="Digite o VPA">
+        <label for="growth-rate">Digite o LPA:</label>
+        <input type="number" id="growth-rate" placeholder="Digite o LPA">
+        <button onclick="calculateFairPrice()">Calcular</button>
+        <h2>Preço Justo: <span id="fair-price">0</span></h2>
+
+        <a href="../html/home.html" class="linkvolt">Página Principal</a>
+    </div>
+
+    
+    <script src="../js/calcularprecojusto.js"></script>
+</body>
+</html>

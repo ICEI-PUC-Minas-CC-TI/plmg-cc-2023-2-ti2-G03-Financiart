@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/gerenciamento.css">
+  <title>Acompanhar</title>
+  <link rel="shortcut icon" href="../img/logocima2.png" type="image/x-icon">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <main>
+  <h1>Gerenciamento financeiro</h1>
+
+  <div class="balance">
+    <h2>Saldo disponível:</h2>
+    <p id="summary-balance"> $0.00</p>
+  </div>
+
+  <div class="summary">
+    <h2>Resumo Financeiro</h2>
+    <p>Receita Total: <span id="summary-income"> $0.00</span></p>
+    <p>Despesa Total: <span id="summary-expense"> $0.00</span></p>
+  </div>
+
+  <h2>Adicionar Registro financeiro</h2>
+  <form id="finance-form">
+    <div class="registro">
+      <label for="finance-description">Descrição:</label>
+      <input type="text" id="finance-description" required>
+    </div>
+    <div class="registro">
+      <label for="finance-type">Tipo:</label>
+      <select id="finance-type" required>
+        <option value="income">Receita</option>
+        <option value="expense">Despesa</option>
+      </select>
+    </div>
+    <div class="registro">
+      <label for="finance-amount">Valor:</label>
+      <input type="number" id="finance-amount" step="0.01" required>
+    </div>
+    <div class="registro">
+      <label for="finance-category">Categoria:</label>
+      <select id="finance-category" required>
+        <option value="recorrente">Recorrente</option>
+        <option value="extraordinário">Extraordinário</option>
+        <option value="mensal">Mensal</option>
+        <option value="semanal">Semanal</option>
+      </select>
+    </div>
+    <button class="registrobtn" type="submit">Salvar</button>
+  </form>
+
+  <h2>Lista de Registros</h2>
+  <div id="finance-list"></div>
+
+  <h2 class="grafico">Gráfico de Receitas e Despesas por Categoria</h2>
+  <canvas id="category-chart"></canvas>
+
+  <footer>
+  <div class="voltar">
+     <a href="../html/home.html" class="btnvoltar">Voltar</a>
+  </div>
+  </footer>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </main>
+</body>
+
+<script src="../js/gerenciamento.js"></script>
+
+</html>

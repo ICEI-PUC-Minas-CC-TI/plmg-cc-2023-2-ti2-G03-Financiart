@@ -1,0 +1,126 @@
+/* Reset de Estilos Padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin-top: 20px; /* Adicionando margem superior ao corpo */
+}
+
+.text-center {
+    text-align: center;
+    font-size: 36px;
+    color: #0f050f;
+    font-family: 'Roboto', sans-serif; /* Escolha uma fonte do Google Fonts ou outra fonte desejada */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.28); /* Adiciona sombra ao texto */
+    margin-bottom: 20px;
+    /* Adicione outras propriedades de estilo conforme necessário */
+}
+
+.control-label {
+
+    
+    font-size: 18px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    font-weight: bold; /* Negrito */
+    /* Adicione outras propriedades de estilo conforme necessário */
+}
+
+.container {
+    border-radius: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom:50px;
+    padding: 20px;
+    background-color: #fffffff5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.582);
+}
+
+
+
+.content {
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Formulário */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 2px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    height: 60px;
+    width:90px;
+    background-color: #737373;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Adicionando uma transição suave */
+}
+
+.btn-primary:hover {
+    background-color: #272629;
+}
+
+/* Tabelas */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse; /* Colapsando as bordas da tabela */
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.table thead {
+    background-color: #333;
+    color: white;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-control {
+        width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .form-control {
+        width: 100%;
+    }
+}
+
+
+.linkvolta{
+
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+    background-color: #333;
+    margin-top: 20px;
+    margin-bottom:20px;
+    margin-left:530px;
+    border-radius:5px;
+    padding:30px;
+}

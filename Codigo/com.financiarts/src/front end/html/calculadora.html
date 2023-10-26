@@ -1,0 +1,141 @@
+<html lang="pt-br" dir="ltr">
+
+<head>
+  <title>Calculadora</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/calculadora.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/calculadora.css">
+  <link rel="stylesheet" href="../css/responsivo.css">
+  <link rel="shortcut icon" href="../img/logocima.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+  <body>
+
+    <div class="home">
+      <a href="../html/home.html" class="logohome"><i class="logo"></i></a>
+      <div class="">
+        <a href="#" id="menu-mobile">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+    <div class="container">
+        <section class="content">
+            <h3 class="text-center">Calculadora de Juros Compostos</h3>
+            
+            <form onsubmit="return false">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label">Valor Inicial:</label>
+                        <input class="montante form-control" type="number" placeholder="Valor inicial">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Aporte Mensal:</label>
+                        <input class="aporte form-control" type="number" placeholder="Senão, vazio">
+                    </div>
+                </div>
+              
+                <div class="row">
+                   
+                    <div class="col-md-6">
+                        <label class="control-label">Taxa Mensal (padrão)</label>
+                        <input class="taxa form-control" type="number" placeholder="Taxa de juros">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label">Ou taxa anual</label>
+                        <input class="taxaAno form-control" type="number" placeholder="Senão, vazio">
+                    </div>
+                </div>
+               
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                        <label class="control-label">Prazo Em meses (padrão)</label>
+                        <input class="prazo form-control" type="number" placeholder="Meses">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="control-label">Prazo em anos</label>
+                        <input class="prazoAno dataput form-control" type="number" placeholder="Senão, vazio">
+                    </div>
+                    <div class="col-md-4">
+                      <label class="control-label">Prazo até data específica</label>
+                        <input class="ateVencer dataput form-control" type="date" placeholder="Data do Vencimento">
+                    </div>
+                </div>
+             
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <input type="submit" class="btn btn-primary btn-block btn-lg simulaUm" value="Calcular">
+                    </div>
+                </div>
+            </form>
+            <hr>
+            <div class="row resultados">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th>Aplicação inicial</th>
+                                <th>Soma Aplicações</th>
+                                <th>Juros totais</th>
+                                <th>Acumulado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>R$ <span class="apIn">.</span></td>
+                                <td>R$ <span class="apOut">.</span></td>
+                                <td>R$ <span class="apJu">.</span></td>
+                                <td>R$ <span class="apTot">.</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <section>
+                    <label class="control-label">Dados parciais e acumulados:</label>
+                    <p></p>
+                    <div id="printfinal" class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped table-dark">
+                            <thead>
+                                <tr>
+                                    <th>Mês</th>
+                                    <th>Aportes</th>
+                                    <th>Juros no mês</th>
+                                    <th>Juros total</th>
+                                    <th>Acumulado</th>
+                                </tr>
+                            </thead>
+
+
+                          
+                            <tbody></tbody>
+
+                            
+                        </table>
+                     
+                    </div>
+
+                    
+                </section>
+               
+            </div>
+
+         
+        </section>
+
+    </div>
+    <a href="./home.html" class="linkvolta">Página Inicial</a>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+<script defer src="../js/calculadora.js"></script>
+
+</html>

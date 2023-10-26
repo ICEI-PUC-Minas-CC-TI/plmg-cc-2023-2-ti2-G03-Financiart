@@ -1,0 +1,51 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+.login1{
+   color: #8916ac;
+}
+
+.container{
+  margin-top: 1%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.imgLogin{
+  margin-bottom: 2%;
+  width: 13%;
+}
+
+.form-group{
+  margin-bottom: 2rem;
+  margin-top: 35px;
+}
+
+.btn-info{
+    background-color: #7117b8!important;
+    border-color: #d2c5dd!important;
+}
+
+.btn2{
+    margin: 10% 0 0px 35%!important;
+    font-size: 20px!important;
+    background-color: #51019b!important;
+}
+
+.info2{
+  color: #3e4749!important;
+  font-size: 22px!important;
+  display: contents!important;
+}
+
+#login-formModal{
+   width: 100%!important;  
+}
+
+.modal-header{
+  background: url("../img/logo11.png") no-repeat 0 0;
+  margin-left: 7%;
+}
