@@ -14,7 +14,7 @@ public class InvestorProfilesController extends CRUDBaseController<InvestorProfi
 	private static InvestorProfileDAO InvestorProfileDAO = new InvestorProfileDAO();
 	
 	public InvestorProfilesController() {
-		super("investorProfile");
+		super("investorProfile", InvestorProfileDAO);
 		
 		get("/"+controller+"/byuser/:id", (request, response) -> {
 			return new Gson().toJson(InvestorProfileDAO.ByUser(Integer.parseInt(request.params(":id"))));
@@ -24,15 +24,5 @@ public class InvestorProfilesController extends CRUDBaseController<InvestorProfi
 			var investment = new Gson().fromJson(request.body(), InvestorProfile.class);
 			return InvestorProfileDAO.insert(investment);
 		});
-	}
-
-	@Override
-	public String onGet(int id) {
-		return InvestorProfileDAO.get(id).toString();
-	}
-
-	@Override
-	public void onInsert() {
-		InvestorProfileDAO.insert(new InvestorProfile());
 	}
 }

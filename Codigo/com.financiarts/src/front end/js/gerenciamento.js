@@ -203,7 +203,6 @@ function clearFinanceForm() {
 function fetchInvestmentsData(id){
   return fetch("http://localhost:6789/investments/byuser/"+id, {
     method: "GET",
-    // mode: "no-cors",
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
@@ -225,7 +224,7 @@ async function deleteInvestmentsData(data){
   });
 }
 
-async function deleteInvestmentsData(data, id){
+async function updateInvestmentsData(data, id){
   var result = await fetch("http://localhost:6789/investments/"+id, {
     method: "PUT",
     body: JSON.stringify(data)
