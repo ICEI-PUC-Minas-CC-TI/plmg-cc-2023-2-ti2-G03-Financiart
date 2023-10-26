@@ -6,15 +6,23 @@ import model.Entity;
 import model.Investments;
 import model.User;
 
+import spark.Filter;
+import spark.Request;
+import spark.Response;
+
+
 public abstract class CRUDBaseController<T extends Entity<T>> {
 	
 	String controller;
 	
 	public CRUDBaseController(String controller) {
 		this.controller = controller;
+		
 	}
 	
-	public void AddController(){	
+	public void AddController(){
+		
+		
 		//GET
 		get("/"+controller+"/:id", (request, response) -> {
 			return onGet(Integer.parseInt(request.params(":id")));

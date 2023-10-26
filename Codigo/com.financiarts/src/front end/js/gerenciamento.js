@@ -200,33 +200,70 @@ function clearFinanceForm() {
   document.getElementById("finance-description").value = "";
 }
 
+function fetchInvestmentsData(id){
+  return fetch("http://localhost:6789/investments/byuser/"+id, {
+    method: "GET",
+    // mode: "no-cors",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+  })
+  .then((response) => response.json())
+}
+
+async function postInvestmentsData(data){
+  var result = await fetch("http://localhost:6789/investments/byuser/"+id, {
+    method: "POST",
+    body: JSON.stringify(data)
+  });
+}
+
+async function deleteInvestmentsData(data){
+  var result = await fetch("http://localhost:6789/investments/"+id, {
+    method: "DELETE",
+  });
+}
+
+async function deleteInvestmentsData(data, id){
+  var result = await fetch("http://localhost:6789/investments/"+id, {
+    method: "PUT",
+    body: JSON.stringify(data)
+  });
+}
+
 // Função para inicializar o aplicativo
 function initApp() {
-  var financeList = JSON.parse(localStorage.getItem("finances")) || [];
-  updateSummary(financeList);
-  updateFinanceList(financeList);
-  updateCategoryChart(financeList);
+  fetchInvestmentsData(1)
+    .then((list) => {
+      var financeList = list;
 
-  document.getElementById("finance-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+      updateSummary(financeList);
+      updateFinanceList(financeList);
+      updateCategoryChart(financeList);
+    
+      document.getElementById("finance-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+    
+        var financeDescription = document.getElementById("finance-description").value;
+        var financeType = document.getElementById("finance-type").value;
+        var financeAmount = parseFloat(document.getElementById("finance-amount").value);
+        var financeCategory = document.getElementById("finance-category").value;
+    
+        if (!isNaN(financeAmount) && financeDescription !== "") {
+          var financeData = {
+            description: financeDescription,
+            type: financeType,
+            amount: financeAmount,
+            category: financeCategory
+          };
+    
+          addFinanceData(financeData);
+          clearFinanceForm();
+        }
+      });
+  })
 
-    var financeDescription = document.getElementById("finance-description").value;
-    var financeType = document.getElementById("finance-type").value;
-    var financeAmount = parseFloat(document.getElementById("finance-amount").value);
-    var financeCategory = document.getElementById("finance-category").value;
-
-    if (!isNaN(financeAmount) && financeDescription !== "") {
-      var financeData = {
-        description: financeDescription,
-        type: financeType,
-        amount: financeAmount,
-        category: financeCategory
-      };
-
-      addFinanceData(financeData);
-      clearFinanceForm();
-    }
-  });
 }
 
 initApp();
