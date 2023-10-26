@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 100%;
+    font-size: 80%;
     font-family: "Kanit", sans-serif;
 }
 
@@ -150,10 +150,8 @@ body {
 }
 
 #container-principal .container-width .container-infos img {
-    width: 16%;
-    border-radius: 50%;
-
-    box-shadow: var(--box-shadow);
+    width: 100%;
+    border-radius: 10%;
 }
 
 #container-principal .container-width .container-infos h1 {
@@ -162,6 +160,10 @@ body {
 
     font-weight: normal;
     color: var(--color-text);
+}
+
+.textocal{
+    font-size: 20px;
 }
 
 .links {
@@ -177,16 +179,13 @@ body {
 }
 
 .links a {
-    width: 33%;
-    height: 100px;
-
+    width: 30%;
+    height: 85px;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    border-radius: 20px;
+    border-radius: 10px;
     gap: 0.5rem;
-    
     box-shadow: var(--box-shadow);
     text-decoration: none;
     color: var(--color-text);
