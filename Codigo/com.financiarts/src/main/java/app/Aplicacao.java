@@ -5,6 +5,7 @@ import static spark.Spark.*;
 import app.controllers.InvestmentsController;
 import app.controllers.InvestorProfilesController;
 import app.controllers.UsersController;
+import dao.InvestorProfileDAO;
 
 public class Aplicacao {
 	
@@ -15,7 +16,6 @@ public class Aplicacao {
 
         new InvestorProfilesController();
         new UsersController().AddController();
-        new InvestmentsController();
-            
+        new InvestmentsController().AddController();    
     }
 }
