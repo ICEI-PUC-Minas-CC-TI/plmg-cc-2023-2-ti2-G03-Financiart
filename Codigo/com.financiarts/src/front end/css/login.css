@@ -1,51 +1,73 @@
-html {
-    height: 100%;
-    width: 100%;
-}
-
-.login1{
-   color: #8916ac;
-}
-
-.container{
-  margin-top: 1%;
-  align-items: center;
+/* Fundo */
+body {
+  background: linear-gradient(135deg, #11998e, #38ef7d) !important;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-.imgLogin{
-  margin-bottom: 2%;
-  width: 13%;
+/* Contêiner principal */
+.container {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  text-align: center;
 }
 
-.form-group{
-  margin-bottom: 2rem;
-  margin-top: 35px;
+/* Estilize o logotipo */
+.imgLogin {
+  width: 120px !important;
+  margin-bottom: 20px;
 }
 
-.btn-info{
-    background-color: #7117b8!important;
-    border-color: #d2c5dd!important;
+/* Estilize o formulário */
+.form-group {
+  margin: 10px 0;
 }
 
-.btn2{
-    margin: 10% 0 0px 35%!important;
-    font-size: 20px!important;
-    background-color: #51019b!important;
+/* Estilize o texto informativo */
+.info2 {
+  color: #333 !important;
+  font-size: 18px !important;
 }
 
-.info2{
-  color: #3e4749!important;
-  font-size: 22px!important;
-  display: contents!important;
+/* Estilize os campos de entrada de texto */
+.form-control {
+  border: 2px solid #ddd !important;
+  border-radius: 5px !important;
+  padding: 10px !important;
+  font-size: 16px !important;
 }
 
-#login-formModal{
-   width: 100%!important;  
+/* Estilize os botões */
+.btn-info, .btn2 {
+  background: #11998e !important;
+  border: none !important;
+  border-radius: 5px !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  padding: 10px 20px !important;
+  cursor: pointer !important;
+  transition: background 0.3s !important;
 }
 
-.modal-header{
-  background: url("../img/logo11.png") no-repeat 0 0;
-  margin-left: 7%;
+.btn-info:hover, .btn2:hover {
+  background: #38ef7d !important;
+}
+
+/* Estilize o botão de fechar no modal */
+.close {
+  color: #000 !important;
+  opacity: 0.5 !important;
+}
+
+/* Estilize o modal */
+.modal-content {
+  border: none !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
 }

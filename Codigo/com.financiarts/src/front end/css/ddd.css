@@ -1,0 +1,97 @@
+/* Estilização dos modais de login e cadastro */
+.modal-content {
+    background-color: #f5f5f5;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.modal-header {
+    border: none;
+    background-color: #333;
+    color: #fff;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-footer {
+    border: none;
+    background-color: #333;
+    color: #fff;
+    justify-content: space-between;
+}
+
+.social-login button {
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.social-login button:hover {
+    background-color: #3578e5;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-check-input {
+    margin-right: 10px;
+}
+
+.form-check-label {
+    color: #555;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #4285f4;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #3578e5;
+}
+
+.btn-secondary:hover {
+    background-color: #b0b0b0;
+}
+
+/* Personalize conforme a estética do seu site, se necessário */

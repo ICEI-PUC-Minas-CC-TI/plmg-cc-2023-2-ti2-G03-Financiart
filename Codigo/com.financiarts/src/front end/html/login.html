@@ -91,7 +91,7 @@
         
         // Declara uma função para processar o formulário de login
         function processaFormLogin (event) {                
-                // Cancela a submissão do formulário para tratar sem fazer refresh da tela
+                
                 event.preventDefault ();
 
                 // Obtem os dados de login e senha a partir do formulário de login
@@ -103,13 +103,13 @@
                 if (resultadoLogin) {
                     window.location.href = 'home.html';
                 }
-                else { // Se login falhou, avisa ao usuário
+                else { 
                     alert ('Usuário ou senha incorretos');
                 }
         }
 
         function salvaLogin (event) {
-            // Cancela a submissão do formulário para tratar sem fazer refresh da tela
+            
             event.preventDefault ();
 
             // Obtem os dados do formulário
@@ -128,15 +128,11 @@
             alert ('Cadastro efetuado com sucesso');
 
             // Oculta a div modal do login
-            //document.getElementById ('loginModal').style.display = 'none';
             $('#loginModal').modal('hide');
         }
 
-        // Associa a funçao processaFormLogin  formulário adicionado um manipulador do evento submit
         document.getElementById ('login-form').addEventListener ('submit', processaFormLogin);
 
-
-        // Associar salvamento ao botao
         document.getElementById ('btn_salvar').addEventListener ('click', salvaLogin);        
     </script>
 
