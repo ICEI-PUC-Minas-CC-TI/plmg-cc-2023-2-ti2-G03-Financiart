@@ -1,6 +1,9 @@
 package app.controllers;
 
 import static spark.Spark.*;
+
+import com.google.gson.Gson;
+
 import dao.*;
 import model.Investments;
 import model.InvestorProfile;
@@ -11,16 +14,15 @@ public class InvestmentsController extends CRUDBaseController<Investments> {
 	private static InvestmentsDAO InvestmentsDAO = new InvestmentsDAO();
 	
 	public InvestmentsController() {
-		super("investments");
-	}
-
-	@Override
-	public String onGet(int id) {
-		return InvestmentsDAO.get(id).toString();
-	}
-
-	@Override
-	public void onInsert() {
-		InvestmentsDAO.insert(new Investments());
+		super("investments", InvestmentsDAO);
+		
+		get("/"+controller+"/byuser/:id", (request, response) -> {
+			return new Gson().toJson(InvestmentsDAO.ByUser(Integer.parseInt(request.params(":id"))));
+		});
+		
+		post("/"+controller+"/byuser/:id", (request, response) -> {
+			var investment = new Gson().fromJson(request.body(), Investments.class);
+			return InvestmentsDAO.insert(investment);
+		});
 	}
 }

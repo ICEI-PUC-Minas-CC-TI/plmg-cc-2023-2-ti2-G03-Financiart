@@ -8,11 +8,15 @@ import org.javatuples.Pair;
 
 public class InvestorProfile extends Entity<InvestorProfile>{
 	
+	long user;
 	String knowledge;
 	double salary;
 	String objective;
 	String risk;
 	String focus;
+	
+	public long getUser() { return user; }
+	public void setUser(long user) { this.user = user; }
 	
 	public String getKnowledge() { return knowledge; }
 	public void setKnowledge(String knowledge) { this.knowledge = knowledge; }
@@ -38,13 +42,14 @@ public class InvestorProfile extends Entity<InvestorProfile>{
 		this.focus = "";
 	}
 	
-	public InvestorProfile(int id, String knowledge, double salary, String objective, String risk, String focus) {
+	public InvestorProfile(int id, String knowledge, double salary, String objective, String risk, String focus, long user) {
 		this.id = id;
 		this.knowledge = knowledge;
 		this.salary = salary;
 		this.objective = objective;
 		this.risk = risk;
 		this.focus = focus;
+		this.user = user;
 	}
 	@Override
 	public String toString() {
@@ -61,6 +66,7 @@ public class InvestorProfile extends Entity<InvestorProfile>{
 		list.add(Pair.with("objective", "'"+ getObjective() + "'"));
 		list.add(Pair.with("risk", "'"+ getRisk() + "'"));
 		list.add(Pair.with("focus", "'"+ getFocus() + "'"));
+		list.add(Pair.with("\"user\"", "'"+ getUser() + "'"));
 		return list.toArray(new Pair[0]);
 	}
 
@@ -72,7 +78,8 @@ public class InvestorProfile extends Entity<InvestorProfile>{
 			rs.getDouble("salary"),
 			rs.getString("objective"),
 			rs.getString("risk"),
-			rs.getString("focus")
+			rs.getString("focus"),
+			rs.getLong("user")
 		);
 	}
 	

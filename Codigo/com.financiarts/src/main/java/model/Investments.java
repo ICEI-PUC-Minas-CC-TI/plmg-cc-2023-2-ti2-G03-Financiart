@@ -8,12 +8,17 @@ import org.javatuples.Pair;
 
 public class Investments extends Entity<Investments> {
 
+	long user;
+	double amount;
 	String asset;
 	String description;
 	String sector;
 	String risk;
 	String category;
 
+	public double getAmount() { return amount; }
+	public void setAmount(double amount) { this.amount = amount; }
+	
 	public String getAsset() { return asset; }
 	public void setAsset(String asset) { this.asset = asset; }
 
@@ -29,6 +34,9 @@ public class Investments extends Entity<Investments> {
 	public String getCategory() { return category; }
 	public void setCategory(String category) { this.category = category; }
 	
+	public long getUser() { return user; }
+	public void setUser(long user) { this.user = user; }
+	
 	public Investments() {
 		super();
 		this.id = 0;
@@ -39,7 +47,7 @@ public class Investments extends Entity<Investments> {
 		this.category = "category";
 	}
 	
-	public Investments(int id, String asset, String description, String sector, String risk, String category) {
+	public Investments(int id, String asset, String description, String sector, String risk, String category, long user, double amount) {
 		super();
 		this.id = id;
 		this.asset = asset;
@@ -47,6 +55,8 @@ public class Investments extends Entity<Investments> {
 		this.sector = sector;
 		this.risk = risk;
 		this.category = category;
+		this.user = user;
+		this.amount = amount;
 	}
 	
 	@Override
@@ -58,6 +68,8 @@ public class Investments extends Entity<Investments> {
 		list.add(Pair.with("sector", "'"+ getSector() + "'"));
 		list.add(Pair.with("risk", "'"+ getRisk() + "'"));
 		list.add(Pair.with("category", "'"+ getCategory() + "'"));
+		list.add(Pair.with("\"user\"", "'"+ getUser() + "'"));
+		list.add(Pair.with("amount", "'"+ getAmount() + "'"));
 		return list.toArray(new Pair[0]);
 	}
 
@@ -69,7 +81,9 @@ public class Investments extends Entity<Investments> {
 			rs.getString("description"),
 			rs.getString("sector"),
 			rs.getString("risk"),
-			rs.getString("category")
+			rs.getString("category"),
+			rs.getLong("user"),
+			rs.getDouble("amount")
 		);
 	}
 }

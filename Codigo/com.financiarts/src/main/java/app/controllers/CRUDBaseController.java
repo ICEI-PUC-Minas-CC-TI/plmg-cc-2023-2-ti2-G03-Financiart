@@ -1,42 +1,39 @@
 package app.controllers;
 
 import static spark.Spark.*;
+
+import com.google.gson.Gson;
+
 import dao.*;
 import model.Entity;
 import model.Investments;
 import model.User;
 
+import spark.Filter;
+import spark.Request;
+import spark.Response;
+
+
 public abstract class CRUDBaseController<T extends Entity<T>> {
 	
 	String controller;
+	BaseDAO basedao;
 	
-	public CRUDBaseController(String controller) {
+	public CRUDBaseController(String controller, BaseDAO basedao) {
 		this.controller = controller;
+		this.basedao = basedao;
+		
 	}
 	
-	public void AddController(){	
+	public void AddController(){		
 		//GET
 		get("/"+controller+"/:id", (request, response) -> {
-			return onGet(Integer.parseInt(request.params(":id")));
-		});
-		
-		//INSERT
-		post("/"+controller+"/insert", (request, response) -> {
-			onInsert();
-			return "OK";
+			return new Gson().toJson(basedao.get(Integer.parseInt(request.params(":id"))));
 		});
 		
 		//DELETE
-	    delete("/"+controller, (request, response) -> {
-	    	return null;
-	    });
-	    
-	    //UPDATE
-	    put("/"+controller, (request, response) -> { 
-	    	return null; 
+	    delete("/"+controller+"/:id", (request, response) -> {
+	    	return basedao.delete(Integer.parseInt(request.params(":id")));
 	    });
 	}
-	
-	public abstract String onGet(int id);
-	public abstract void onInsert();
 }
