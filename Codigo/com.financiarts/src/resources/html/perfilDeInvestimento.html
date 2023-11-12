@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<link rel="stylesheet" href="../css/investimentos.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://kit.fontawesome.com/8abc0a1ef2.js" crossorigin="anonymous"></script>
+	<title>Investimentos</title>
+</head>
+
+<body id="start">
+	<div style="background: #6f0091; display: flex; padding: 1.5rem">
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="home.html">Home</a>
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="investimentos.html">Início</a>
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="gerenciamento.html">Gerenciar</a>
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="calculadora.html">Calcular</a>
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="calculadora.html">Perfil de investimento</a>
+		<div style="margin-left: auto;" id="user-status"></div>
+	</div>
+	<main style="display: flex; flex-direction: column;padding: 0 2rem;margin-top: 1rem;">
+		<div style="box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.2); padding: 2rem; border-radius: 8px;">
+			<span style="color: rgba(0,0,0,.7)" >Seu perfil de investidor atual é </span>
+			<h3 id="investor-profile" style="margin: 0; padding: 0">Conservador</h3>
+		</div>
+		<div style="box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.2); padding: 2rem; border-radius: 8px;margin-top: 1rem;">
+			<h3>Você possui duas formas de verificar seu perfil</h3>
+			<form id="investor-choice" style="display: flex; flex-direction: column;min-height: 0px;">
+				<div style="display: flex; align-items: center;">
+					<input type="radio" id="moderado" name="perfil_investidor" value="write" checked  style="margin-bottom: 5px; ">
+					<label for="moderado">Escrever um pouco sobre mim.</label><br>
+				</div>
+				<div style="display: flex; align-items: center;">
+					<input type="radio" id="arrojado" name="perfil_investidor" value="answer" style="margin-bottom: 5px;">
+					<label for="arrojado">Responder questionario</label><br>
+				</div>
+			</form>
+		</div>
+		<div id="investor-choice-content"></div>
+	</main>
+
+	<script src="../js/investorProfile.js"></script>
+	<script src="../js/auth/auth.js"></script>
+	<script src="../js/helpers/utils.js"></script>
+	<script src="../js/helpers/investorProfileQuestions.js"></script>
+	<script src="../js/helpers/requester.js"></script>
+</body>
+
+</html>

@@ -11,11 +11,12 @@ import org.javatuples.Pair;
 
 import model.Investment;
 import model.InvestorProfile;
+import model.Transaction;
 
-public class InvestorProfileDAO extends BaseDAO<InvestorProfile> {
+public class TransactionDAO extends BaseDAO<Transaction> {
 
-	public InvestorProfileDAO() { 
-		super("InvestorProfile", (InvestorProfile i) -> { return new InvestorProfile(); });
+	public TransactionDAO() { 
+		super("Transaction", (Transaction i) -> { return new Transaction(); });
 		conectar();
 	}	
 

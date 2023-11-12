@@ -20,22 +20,45 @@ public class QueryBuilder{
 			if(fields.length > 1 && i < fields.length-1)
 				stringBuilder.append(",");
 		}
-		stringBuilder.append("FROM ");
+		stringBuilder.append(" FROM ");
 		appendTable();
 		stringBuilder.append(" ");
 		return this;
 	}
 	
+	public QueryBuilder Join(String table, Pair<String, String>... fields) {
+		stringBuilder.append(" JOIN ");
+		stringBuilder.append(table);
+		stringBuilder.append(" ON ");
+		for(var i = 0; i < fields.length; i++) {
+			var key = fields[i].getValue(0);
+			var value = fields[i].getValue(1);
+			stringBuilder.append(key+" = "+value);
+			
+			if(fields.length > 1 && i < fields.length-1)
+				stringBuilder.append(" AND ");
+		}
+		return this;
+	}
+	
 	public QueryBuilder Where(Pair<String, String>... fields) {
-		stringBuilder.append("WHERE ");
+		stringBuilder.append(" WHERE ");
 		for(var i = 0; i < fields.length; i++) {
 			var key = fields[i].getValue(0);
 			var value = fields[i].getValue(1);
 			stringBuilder.append(key+"="+value);
 			
 			if(fields.length > 1 && i < fields.length-1)
-				stringBuilder.append(",");
+				stringBuilder.append(" AND ");
 		}
+		return this;
+	}
+	
+	public QueryBuilder And(Pair<String, String>... fields) {
+		stringBuilder.append(" AND ");
+		stringBuilder.append(fields[0].getValue(0));
+		stringBuilder.append(" = ");
+		stringBuilder.append(fields[0].getValue(1));
 		return this;
 	}
 	

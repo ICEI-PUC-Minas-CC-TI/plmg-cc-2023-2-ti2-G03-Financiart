@@ -4,8 +4,10 @@ import static spark.Spark.*;
 
 import app.controllers.InvestmentsController;
 import app.controllers.InvestorProfilesController;
+import app.controllers.TransactionsController;
 import app.controllers.UsersController;
 import dao.InvestorProfileDAO;
+import model.Transaction;
 
 public class Aplicacao {
 	
@@ -36,6 +38,7 @@ public class Aplicacao {
 
         new InvestorProfilesController();
         new UsersController().AddController();
-        new InvestmentsController().AddController();    
+        new InvestmentsController().AddController();
+        new TransactionsController().AddController();
     }
 }

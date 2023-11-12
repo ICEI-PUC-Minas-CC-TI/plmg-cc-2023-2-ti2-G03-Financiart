@@ -7,14 +7,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import org.javatuples.Pair;
-import model.Investments;
+import model.Investment;
 import model.User;
 import com.google.gson.Gson;
 
-public class InvestmentsDAO extends BaseDAO<Investments> {
+public class InvestmentsDAO extends BaseDAO<Investment> {
 	
 	public InvestmentsDAO() { 
-		super("Investments", (Investments i) -> { return new Investments(); });
+		super("Investments", (Investment i) -> { return new Investment(); });
 		conectar();
 	}
 }

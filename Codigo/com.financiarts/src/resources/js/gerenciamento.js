@@ -38,7 +38,7 @@ function updateFinanceList(financeList) {
 
     var financeAmount = document.createElement("span");
     financeAmount.className = "finance-amount";
-    financeAmount.textContent = "$" + finance.amount.toFixed(2);
+    financeAmount.textContent = "$" + finance.value.toFixed(2);
 
     var financeCategory = document.createElement("span");
     financeCategory.className = "finance-category";
@@ -73,8 +73,8 @@ function updateFinanceList(financeList) {
 
 // Função para atualizar o gráfico de categorias
 function updateCategoryChart(financeList) {
+  
   var categories = {};
-
   financeList.forEach(function (finance) {
     if (!categories[finance.category]) {
       categories[finance.category] = { income: 0, expense: 0 };
@@ -102,15 +102,15 @@ function updateCategoryChart(financeList) {
       labels: categoryNames,
       datasets: [
         {
-          label: "Receita",
           data: categoryIncomes,
+          label: "Receita",
           backgroundColor: "rgba(75, 192, 192, 0.5)",
           borderColor: "rgba(75, 192, 192, 1)",
           borderWidth: 1
         },
         {
-          label: "Despesa",
           data: categoryExpenses,
+          label: "Despesa",
           backgroundColor: "rgba(255, 99, 132, 0.5)",
           borderColor: "rgba(255, 99, 132, 1)",
           borderWidth: 1

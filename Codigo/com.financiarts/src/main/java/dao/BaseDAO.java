@@ -11,7 +11,7 @@ import model.Entity;
 
 public class BaseDAO<T extends Entity<T>> extends DAO {
 
-	Function<T, T> entityFactory;
+	protected Function<T, T> entityFactory;
 	
 	public BaseDAO(String table, Function<T,T> entityFactory) { 
 		super(table);
@@ -42,6 +42,27 @@ public class BaseDAO<T extends Entity<T>> extends DAO {
 	}
 	
 	@SuppressWarnings("unchecked")
+	public List<T> all() {
+			List<T> investments = new ArrayList<T>();
+		
+		try {
+			Statement st = conexao.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+			String sql = getQueryBuilder().Select("*").Build();
+			ResultSet rs = st.executeQuery(sql);
+			
+			while(rs.next()) investments.add(entityFactory.apply(null).FromResultSet(rs));
+		       
+	        
+	        st.close();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		} catch (Throwable e) {
+			return investments;
+		}
+		return investments;
+	}
+	
+	@SuppressWarnings("unchecked")
 	public boolean insert(T entity) {
 		boolean status = false;
 		try {
@@ -60,7 +81,7 @@ public class BaseDAO<T extends Entity<T>> extends DAO {
 		boolean status = false;
 		try {  
 			Statement st = conexao.createStatement();
-			st.executeUpdate("DELETE FROM "+ table +" WHERE id = " + id);
+			st.executeUpdate("DELETE FROM \""+ table +"\" WHERE id = " + id);
 			st.close();
 			status = true;
 		} catch (SQLException u) {  

@@ -2,77 +2,93 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/gerenciamento.css">
-  <title>Acompanhar</title>
-  <link rel="shortcut icon" href="../img/logocima2.png" type="image/x-icon">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Acompanhar</title>
+	<link rel="stylesheet" href="../css/gerenciamento.css">
+	<link rel="shortcut icon" href="../img/logocima2.png" type="image/x-icon">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Roboto:ital,wght@0,300;0,500;0,700;1,400&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
-  <main>
-  <h1>Gerenciamento financeiro</h1>
+	<div style="background: #6f0091; display: flex; padding: 1.5rem">
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="home.html">Home</a>
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="investimentos.html">Início</a>
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="gerenciamento.html">Gerenciar</a>
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="calculadora.html">Calcular</a>
+		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="perfilDeInvestimento.html">Perfil de investimento</a>
+		<div style="margin-left: auto;" id="user-status"></div>
+	</div>
 
-  <div class="balance">
-    <h2>Saldo disponível:</h2>
-    <p id="summary-balance"> $0.00</p>
-  </div>
+	<main style="padding: 0 3rem;">
+		<div style="display: flex; width: 100%;margin-top: 1rem;" id="summary-container"></div>
+		<div style="display: flex;width: 100%;">
+			<div style="width: 100%;box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, .3);padding: 20px; border-radius: 8px;margin: 10px;display: flex; flex-direction: column;align-items: center;">
+				<h2>Lista de Registros</h2>
+				<div style="max-height: 300px;overflow-y: auto;" id="finance-list"></div>
+			</div>
+			<div style="width: 100%;box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, .3);padding: 20px; border-radius: 8px;margin: 10px;display: flex; align-items: center;justify-content: center;">
+				<div>
+					<h2 style="padding: 0; margin:0;" class="grafico">Gráfico de Receitas e Despesas por Categoria</h2>
+					<canvas id="category-chart"></canvas>
+				</div>
+			</div>
+		</div>
+	</main>
+	<div style="width: 80%;box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, .3);padding: 20px; border-radius: 8px;margin: auto;">
+		<h2>Adicionar Registro financeiro</h2>
+		<form id="finance-form" style="display: flex;width: 100%; align-items: center;">
+			<div style="width: 100%; padding: 0 20px;"> 
+				<label>Descrição</label>
+				<input name="description" style="width: 100%;" type="text"  required value="TESTE">
+			</div>
+			<div style="width: 100%;padding: 0 20px;"> 
+				<label>Tipo</label>
+				<select name="revenue" id="finance-type" required  style="width: 100%;">
+					<option  value="true" >Receita</option>
+					<option value="false">Despesa</option>
+				</select>
+			</div>
+			
+			<div style="width: 100%;padding: 0 20px;"> 
+				<label>Category</label>
+				<select name="category" id="finance-category" required style="width: 100%;">
+					<option value="recorrente">Recorrente</option>
+					<option value="extraordinário">Extraordinário</option>
+					<option value="mensal">Mensal</option>
+					<option value="semanal">Semanal</option>
+				</select>
+			</div>
+			<div style="width: 100%;padding: 0 20px;"> 
+				<label>Data</label>
+				<input type="text"  name="date" required value="2023-01-10" style="width: 100%;">
+			</div>
+			<div style="width: 100%;padding: 0 20px;"> 
+				<label>Quantidade</label>
+				<input type="text"  name="value"  required value="200"  style="width: 100%;">
+			</div>
 
-  <div class="summary">
-    <h2>Resumo Financeiro</h2>
-    <p>Receita Total: <span id="summary-income"> $0.00</span></p>
-    <p>Despesa Total: <span id="summary-expense"> $0.00</span></p>
-  </div>
-
-  <h2>Adicionar Registro financeiro</h2>
-  <form id="finance-form">
-    <div class="registro">
-      <label for="finance-description">Descrição:</label>
-      <input type="text" id="finance-description" required>
-    </div>
-    <div class="registro">
-      <label for="finance-type">Tipo:</label>
-      <select id="finance-type" required>
-        <option value="income">Receita</option>
-        <option value="expense">Despesa</option>
-      </select>
-    </div>
-    <div class="registro">
-      <label for="finance-amount">Valor:</label>
-      <input type="number" id="finance-amount" step="0.01" required>
-    </div>
-    <div class="registro">
-      <label for="finance-category">Categoria:</label>
-      <select id="finance-category" required>
-        <option value="recorrente">Recorrente</option>
-        <option value="extraordinário">Extraordinário</option>
-        <option value="mensal">Mensal</option>
-        <option value="semanal">Semanal</option>
-      </select>
-    </div>
-    <button class="registrobtn" type="submit">Salvar</button>
-  </form>
-
-  <h2>Lista de Registros</h2>
-  <div id="finance-list"></div>
-
-  <h2 class="grafico">Gráfico de Receitas e Despesas por Categoria</h2>
-  <canvas id="category-chart"></canvas>
-
-  <footer>
-  <div class="voltar">
-     <a href="../html/home.html" class="btnvoltar">Voltar</a>
-  </div>
-  </footer>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  </main>
+			<button  style="margin-left: 40px;margin-top: auto;" type="submit">Salvar</button>
+		</form>
+	</div>
 </body>
 
-<script src="../js/gerenciamento.js"></script>
+<!-- <script src="../js/gerenciamento.js"></script> -->
+<script src="../js/transactionManagement.js"></script>
+<script src="../js/auth/auth.js"></script>
+<script src="../js/auth/userInfo.js"></script>
+<script src="../js/helpers/utils.js"></script>
+<script src="../js/helpers/requester.js"></script>
 
 </html>
+<style>
+	* {
+		font-family: 'Inter', sans-serif;
+		font-family: 'Roboto', sans-serif;
+	}
+</style>

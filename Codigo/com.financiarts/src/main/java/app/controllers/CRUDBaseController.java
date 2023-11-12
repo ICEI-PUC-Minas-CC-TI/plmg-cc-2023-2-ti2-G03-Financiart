@@ -6,7 +6,7 @@ import com.google.gson.Gson;
 
 import dao.*;
 import model.Entity;
-import model.Investments;
+import model.Investment;
 import model.User;
 
 import spark.Filter;
@@ -22,7 +22,6 @@ public abstract class CRUDBaseController<T extends Entity<T>> {
 	public CRUDBaseController(String controller, BaseDAO basedao) {
 		this.controller = controller;
 		this.basedao = basedao;
-		
 	}
 	
 	public void AddController(){		
