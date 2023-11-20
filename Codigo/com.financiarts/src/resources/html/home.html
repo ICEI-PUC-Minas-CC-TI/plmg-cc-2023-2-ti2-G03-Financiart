@@ -18,7 +18,7 @@
 <body>
   <div id="nav">
     <header id="header">
-      <nav class="navegacao" id="topo">
+      <nav class="navegacao" id="topo" >
         <a href="#nav"><img class="logo" src="../images/logo11.png"
             alt="logo toro Investimentos"></a>
         <ul>
@@ -28,9 +28,10 @@
           <li><a href="#">NOTÍCIAS</a></li>
           <li><a href="#">AJUDA</a></li>
         </ul>
-        <div class="double-button">
-          <a class="button" href="../html/login.html">Entrar</a>
-          <a class="button" href="../html/login.html">Cadastre-se</a>
+
+        
+        <div id="status-container" style="align-items: center;">
+          <div style="margin-left: auto;color: black;" id="user-status"></div>
         </div>
       </nav>
     </header>
@@ -509,7 +510,9 @@
 
   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="../js/home.js"></script>
+<script src="../js/auth/auth.js"></script>
+<script src="../js/auth/userInfo.js"></script>
+<script src="../js/home.js"></script>
 </body>
 
 </html>

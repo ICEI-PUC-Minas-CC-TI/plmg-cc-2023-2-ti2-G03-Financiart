@@ -31,7 +31,7 @@ function setAnonymousInfo(){
 
 function setLoginInfo(){
 	var container = document.createElement("div")
-	container.style.color = `white`;
+	container.style.color = `black`;
 	container.innerHTML = `Bem Vindo(a), ${getLogin().email}`;
 
 	var logoutButton = document.createElement("a")

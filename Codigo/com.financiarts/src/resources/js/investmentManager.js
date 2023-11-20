@@ -20,7 +20,7 @@ function buildCard(containerID, investment, quantity){
 	var container = document.getElementById(containerID);
 
 	var card = document.createElement("div");
-	card.style.minWidth = "250px"
+	card.style.minWidth = "calc(740px / 3)"
 	card.style.margin = "10px"
 	card.style.fontSize = "0.8rem"
 	card.style.boxShadow = "1px 1px 8px 1px rgba(0, 0, 0, .3)"
@@ -38,7 +38,7 @@ function buildCard(containerID, investment, quantity){
 
 	var sector = document.createElement("div");
 	sector.innerHTML = investment.sector;
-	sector.style.fontSize ="0.9rem"
+	sector.style.fontSize ="0.8rem"
 	sector.style.fontWeight ="bold"
 	sector.style.textTransform ="uppercase"
 	sector.style.display = "flex"

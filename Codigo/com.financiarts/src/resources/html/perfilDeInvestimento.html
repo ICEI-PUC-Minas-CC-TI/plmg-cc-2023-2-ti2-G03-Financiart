@@ -5,27 +5,39 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-	<link rel="stylesheet" href="../css/investimentos.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://kit.fontawesome.com/8abc0a1ef2.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/investimentos.css">
+	<link rel="stylesheet" href="../css/home.css">
+	<link rel="stylesheet" href="../css/gerenciamento.css">
 	<title>Investimentos</title>
 </head>
 
-<body id="start">
-	<div style="background: #6f0091; display: flex; padding: 1.5rem">
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="home.html">Home</a>
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="investimentos.html">Início</a>
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="gerenciamento.html">Gerenciar</a>
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="calculadora.html">Calcular</a>
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="calculadora.html">Perfil de investimento</a>
-		<div style="margin-left: auto;" id="user-status"></div>
-	</div>
-	<main style="display: flex; flex-direction: column;padding: 0 2rem;margin-top: 1rem;">
-		<div style="box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.2); padding: 2rem; border-radius: 8px;">
+<body id="start" style="background-color: rgba(0,0,0,0.02);height: 100vh;">
+	<header id="header" style="background-color: white;">
+		<nav class="navegacao" id="topo" >
+			<a href="home.html"><img  src="../images/logo11.png"
+				alt="logo toro Investimentos"></a>
+			<ul>
+				<li><a href="../html/investimentos.html">INÍCIO</a></li>
+				<li><a href="../html/gerenciamento.html">GERENCIAR</a></li>
+				<li><a style="color:rgb(97, 49, 180); font-weight: 600;" href="../html/perfilDeInvestimento.html">PERFIL DE INVESTIMENTO</a></li>
+			</ul>
+			<div id="status-container" style="align-items: center;">
+				<div style="margin-left: auto;color: black;" id="user-status"></div>
+			</div>
+		</nav>
+	</header>
+
+	<div id="ads"></div>
+
+	<main style="max-width: 1000px;display: flex;flex-direction: column;align-items: center;margin: auto;margin-top: 80px">
+		<div style="box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.2); padding: 2rem; border-radius: 8px;width: 100%">
 			<span style="color: rgba(0,0,0,.7)" >Seu perfil de investidor atual é </span>
 			<h3 id="investor-profile" style="margin: 0; padding: 0">Conservador</h3>
 		</div>
-		<div style="box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.2); padding: 2rem; border-radius: 8px;margin-top: 1rem;">
+		<div style="box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.2); padding: 2rem; border-radius: 8px;margin-top: 1rem; width: 100%">
 			<h3>Você possui duas formas de verificar seu perfil</h3>
 			<form id="investor-choice" style="display: flex; flex-direction: column;min-height: 0px;">
 				<div style="display: flex; align-items: center;">
@@ -38,13 +50,15 @@
 				</div>
 			</form>
 		</div>
-		<div id="investor-choice-content"></div>
+		<div style="width: 100%" id="investor-choice-content"></div>
 	</main>
 
+	<script src="../js/ads.js"></script>
 	<script src="../js/investorProfile.js"></script>
 	<script src="../js/auth/auth.js"></script>
 	<script src="../js/helpers/utils.js"></script>
 	<script src="../js/helpers/investorProfileQuestions.js"></script>
+	<script src="../js/auth/userInfo.js"></script>
 	<script src="../js/helpers/requester.js"></script>
 </body>
 

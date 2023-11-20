@@ -7,36 +7,46 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<link rel="stylesheet" href="../css/investimentos.css">
 	<link rel="shortcut icon" href="../img/logocima2.png" type="image/x-icon">
+	<link rel="stylesheet" href="../css/home.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500;700&display=swap" rel="stylesheet">
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://kit.fontawesome.com/8abc0a1ef2.js" crossorigin="anonymous"></script>
 	<title>Investimentos</title>
 </head>
 
-<body>
-	<div style="background: #6f0091; display: flex; padding: 1.5rem">
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="home.html">Home</a>
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="investimentos.html">Início</a>
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="gerenciamento.html">Gerenciar</a>
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="calculadora.html">Calcular</a>
-		<a style="color: white;font-weight: bold ;margin-left: 1rem;" href="perfilDeInvestimento.html">Perfil de investimento</a>
-		<div style="margin-left: auto;" id="user-status"></div>
-	</div>
-  
-	<main style="display: flex; flex-direction: column;">
+<body style="background-color: rgba(0,0,0,0.02);height: 100vh;">
+	<header id="header" style="background-color: white;">
+		<nav class="navegacao" id="topo" style="margin-top: auto">
+			<a href="home.html"><img  src="../images/logo11.png"
+				alt="logo toro Investimentos"></a>
+			<ul>
+				<li><a style="color:rgb(97, 49, 180); font-weight: 600;" href="../html/investimentos.html">INÍCIO</a></li>
+				<li><a href="../html/gerenciamento.html">GERENCIAR</a></li>
+				<li><a href="../html/perfilDeInvestimento.html">PERFIL DE INVESTIMENTO</a></li>
+			</ul>
+			<div id="status-container" style="align-items: center;">
+				<div style="margin-left: auto;color: black;" id="user-status"></div>
+			</div>
+		</nav>
+	</header>
+	<div id="ads"></div>
+
+	<main style="max-width: 1000px;display: flex;flex-direction: column;align-items: center;margin: auto; padding-top: 80px;;">
 		<div style="display: flex; align-items: center;">
 			<p style="font-weight: bold;padding: 0 1rem ">Meus Investimentos</p>
-			<a href="gerenciamento.html">Gerenciar</a>
 		</div>
-		<section id="my-investments" style="display: flex; justify-content: start;"></section>
+		<section id="my-investments" style="display: flex; justify-content: start;background-color: transparent"></section>
 
 		<p style="font-weight: bold;padding: 0 1rem ">Ativos</p>
-		<section id="investments" style="display: flex; justify-content: start;"></section>
+		<section id="investments" style="display: flex; justify-content: start;background-color: transparent"></section>
 	</main>
 
 	<script src="../js/investmentManager.js"></script>
 	<script src="../js/auth/auth.js"></script>
+	<script src="../js/ads.js"></script>
 	<script src="../js/helpers/utils.js"></script>
+	<script src="../js/auth/userInfo.js"></script>
 	<script src="../js/helpers/requester.js"></script>
 </body>
 

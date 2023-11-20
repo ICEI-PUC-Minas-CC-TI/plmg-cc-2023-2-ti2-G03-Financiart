@@ -1,6 +1,11 @@
 window.addEventListener("DOMContentLoaded", () => {
-	var logoutButton = document.getElementById ('logout');
-	logoutButton.addEventListener("click", logout);
+	if(!getLogin()){
+		const loginButtons = `
+			<a class="button" href="../html/login.html">Entrar</a>
+			<a class="button" href="../html/login.html">Cadastre-se</a>
+		`
+		document.getElementById ('status-container').innerHTML = loginButtons;
+	}
 });
 
 window.addEventListener('scroll', changeHeaderWhenScroll);
