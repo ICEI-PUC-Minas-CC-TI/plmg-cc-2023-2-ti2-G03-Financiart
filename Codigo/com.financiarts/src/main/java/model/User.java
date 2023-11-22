@@ -14,6 +14,7 @@ public class User extends Entity<User> {
 	Date birth;
 	String email;
 	String password;
+	boolean isPremium;
 
 	public String getCpf() { return cpf; }
 	public void setCpf(String cpf) { this.cpf = cpf;}
@@ -29,31 +30,22 @@ public class User extends Entity<User> {
 
 	public String getPassword() { return password; }
 	public void setPassword(String password) { this.password = password; }
+	
+	public boolean getIsPremium() { return isPremium; }
+	public void setIsPremium(boolean isPremium) { this.isPremium = isPremium; }
 
-	public User(int id, String cpf, String sex, Date birth, String email, String password) {
+
+	public User(int id, String cpf, String sex, Date birth, String email, String password, boolean isPremium) {
 		this.id = id;
 		this.cpf = cpf;
 		this.sex = sex;
 		this.birth = birth;
 		this.email = email;
 		this.password = password;
+		this.isPremium = isPremium;
 	}
 
-	public User() {
-		this.id = 0;
-		this.cpf = "123123123";
-		this.sex = "O";
-		this.birth = new Date(100);
-		this.email = "test";
-		this.password = "test";
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", cpf=" + cpf + ", sex=" + sex + ", birth=" + birth + ", email=" + email
-				+ ", password=" + password + "]";
-	}
-	
+	public User() {}
 	
 	@Override
 	@SuppressWarnings("unchecked")
@@ -83,7 +75,8 @@ public class User extends Entity<User> {
 			rs.getString("sex"),
 			rs.getDate("birth"),
 			rs.getString("email"),
-			rs.getString("password")
+			rs.getString("password"),
+			rs.getBoolean("ispremium")
 		);
 		
 	}

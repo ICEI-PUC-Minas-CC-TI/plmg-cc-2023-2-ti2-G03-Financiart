@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	if(getLogin() && window.location.href == loginPageURI)
 		window.location.href = managementPageURI;
 
-	if(!getLogin() && window.location.href != loginPageURI)
+	if(!getLogin() && window.location.href != loginPageURI && window.location.href != homePageURI)
 		 window.location.href = loginPageURI;
 });
 
