@@ -1,6 +1,6 @@
 /* Fundo */
 body {
-  background: linear-gradient(135deg, #11998e, #38ef7d) !important;
+  background: linear-gradient(135deg, rgb(97, 49, 180), rgba(97, 49, 180,0.3)) !important;
   display: flex;
   justify-content: center;
   align-items: center;
