@@ -1,7 +1,16 @@
 window.addEventListener("DOMContentLoaded", () => {
+
+	buildBase();
+	var c = document.getElementById("add-new");
+	c.onclick =	AddInvestment;
+});
+
+function buildBase(){
 	requestFor("investments")
 		.GET("")
 		.then((investments) => {
+			var container = document.getElementById("investments");
+			container.innerHTML = "";
 			for(var investment of investments)
 				buildCard("investments", investment);
 		})
@@ -9,10 +18,26 @@ window.addEventListener("DOMContentLoaded", () => {
 	requestFor("investments")
 		.GET("byuser/"+getLogin().id)
 		.then((investments) => {
+			var container = document.getElementById("my-investments");
+			container.innerHTML = "";
 			for(var investment of investments)
 				buildCard("my-investments", investment.investments, investment.amount);
 		})
-});
+
+}
+
+function AddInvestment(){
+	var nome = document.getElementById("nome").value;
+	var quantidade = document.getElementById("quantidade").value;
+	
+	requestFor("investments")
+		.POST(`byuser/${+getLogin().id}/${nome}/${quantidade}`, {})
+		.then((investments) => {
+			buildBase()
+		}).catch(() => {
+			alert("Não foi possivel adicionar investimento. Verifique se o código está correto")
+		})
+}
 
 
 function buildCard(containerID, investment, quantity){
@@ -69,6 +94,19 @@ function buildCard(containerID, investment, quantity){
 		myAmount.style.fontSize ="1rem"
 		myAmount.style.fontWeight ="bold"
 		content.append(myAmount);
+		
+		var deleteX = document.createElement("div");
+		deleteX.innerHTML = "x";
+	
+		deleteX.onclick = () => {
+			requestFor("investments")
+				.DELETE(`byuser/${investment.id}`, {})
+				.then((investments) => {
+					buildBase()
+				})
+		}
+		
+		content.append(deleteX)
 	}
 	card.append(label);
 	card.append(content);

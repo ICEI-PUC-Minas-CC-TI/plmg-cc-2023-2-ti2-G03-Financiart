@@ -59,7 +59,7 @@ function updateFinanceList(financeList) {
     financeItem.appendChild(financeAmount);
     financeItem.appendChild(financeCategory);
     financeItem.appendChild(deleteButton);
-    financeItem.appendChild(editButton);
+    // financeItem.appendChild(editButton);
 
     financeListContainer.appendChild(financeItem);
 

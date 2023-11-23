@@ -48,4 +48,21 @@ public class UserInvestmentsDAO extends BaseDAO<UserInvestments> {
 		}
 		return investments;
 	}
+	
+	
+	public boolean insertNew(int user, int investment, int quantity) {
+		boolean status = false;
+		try {
+			String sql = "INSERT INTO \"UserInvestments\" (\"user\", investments, quantity) VALUES ("+user+","+investment+","+quantity+")";
+			PreparedStatement st = conexao.prepareStatement(sql);
+			st.executeUpdate();
+			st.close();
+			status = true;
+		} catch (SQLException u) {  
+			throw new RuntimeException(u);
+		}
+		return status;
+	}
+	
+	
 }
