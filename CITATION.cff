@@ -1,31 +1,33 @@
 cff-version: 1.0.1
 message: Please cite this software using these metadata.
-title: 
+title: Financiart
 authors:
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names: 
-  - family-names: 
-    given-names:
+  - family-names: Manoel Silva
+    given-names: Vitor
+  - family-names: Augusto Silva Ferreira
+    given-names: Pedro
+  - family-names: Laine
+    given-names: Marcos Paulo
+  - family-names: Fischer de Paula Lopes
+    given-names: Higor
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: do Val Machado
+    given-names: Max 
   - name-suffix: Professor
     affiliation: PUC Minas
     family-names: 
-    given-names: 
+    given-names: Josiane
   - name-suffix: Professor
     affiliation: PUC Minas
     family-names: 
-    given-names: 
+    given-names: Luciana
 keywords:
-  - 
-  - 
-repository-code: 
+  - Finanças
+  - Educação Financeira
+  - Gestão pessoal
+  - Investimentos
+repository-code: https://github.com/ICEI-PUC-Minas-CC-TI/plmg-cc-2023-2-ti2-G03-Financiart
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2022-07-14
+date-released: 2023-12-12
