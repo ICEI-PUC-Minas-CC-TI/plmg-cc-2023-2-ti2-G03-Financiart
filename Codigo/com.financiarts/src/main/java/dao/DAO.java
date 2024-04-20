@@ -1,6 +1,8 @@
 package dao;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import service.QueryBuilder;
 
@@ -12,11 +14,11 @@ public class DAO {
 	
 	public DAO(String table) {
 		conexao = null;
-		this.table =table; 
+		this.table =table;
 	}
 	
 	public boolean conectar() {
-		String driverName = "org.postgresql.Driver";                    
+		String driverName = "org.postgresql.Driver";
 		String serverName = "financiart.postgres.database.azure.com";
 		String mydatabase = "financiart";
 		int porta = 5432;
